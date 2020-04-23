@@ -1,0 +1,21 @@
+.vertical-align-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left {
+  background-color: #16202C;
+  color: white;
+  height: 100vh;
+}
+
+.welcome-text {
+  *:not(:first-child) {
+    margin-top: 2em;
+  }
+}
+
+.right{
+
+}
