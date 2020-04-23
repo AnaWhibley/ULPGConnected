@@ -1,8 +1,9 @@
 import {EventEmitter, Injectable, NgZone, Output} from '@angular/core';
-import {AngularFireAuth} from "@angular/fire/auth";
-import {AngularFirestore} from "@angular/fire/firestore";
+
 import {Router} from "@angular/router";
 import {BehaviorSubject, Observable} from "rxjs";
+import {AngularFireAuth} from "@angular/fire/auth";
+import {AngularFirestore} from "@angular/fire/firestore";
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +31,7 @@ export class AuthService {
 
   login(email: string, password: string) {
 
-    this.afAuth.signInWithEmailAndPassword(email, password)
+    this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user)=>{
         this.bd.collection("users").ref.where("username", "==", user.user.email).onSnapshot(snap =>{
           snap.forEach(userRef => {
@@ -51,7 +52,7 @@ export class AuthService {
   }
 
   logOut(){
-    this.afAuth.signOut()
+    this.afAuth.auth.signOut()
       .then(()=>{
         console.log("user signed out successfully");
         this.currentUser = null;
@@ -66,7 +67,7 @@ export class AuthService {
 
   signUp(name:string, surname:string, username:string, email:string, password:string){
 
-    this.afAuth.createUserWithEmailAndPassword(email, password)
+    this.afAuth.auth.createUserWithEmailAndPassword(email, password)
       .then((userResponse)=>{
         // add the user to the "users" database
         let user = {
@@ -78,7 +79,7 @@ export class AuthService {
           state: true,
           role: 2,
         };
-
+        
         //add the user to the database
         this.bd.collection("users").add(user)
           .then(user => {
