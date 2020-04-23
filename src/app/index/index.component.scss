@@ -45,11 +45,28 @@
 }
 
 @media screen and (min-width: 320px) and (max-width : 767.98px) {
-  .img-left {
+  .left {
     display: none;
   }
 
-  .left, .right {
+  .img-right {
+    width: 30%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 1em;
+  }
+
+  .right {
     height: auto;
+    padding: 2em;
+    h2, h5 {
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  .content-right {
+    width: 100%;
   }
 }
