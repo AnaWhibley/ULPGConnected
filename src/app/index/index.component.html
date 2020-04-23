@@ -10,12 +10,27 @@
     </div>
     <div class="col-lg-6 col-md-6 col-12 right vertical-align-center">
       <div class="content-right">
-        <img class="img-right" src="../../assets/logo.png" alt="logo">
-        <h2>Descubre lo que está pasando en la ULPGC en este momento</h2><br><br>
-        <h5>Únete hoy a ULPGConnected</h5><br>
-        <div class="text-center">
-          <button class="btn btn-primary mb-3">Regístrate</button><br>
-          <button class="btn btn-outline-primary">Inicia sesión</button>
+
+        <div *ngIf="login">
+          <app-login></app-login>
+        </div>
+
+        <div *ngIf="signin">
+          <app-signin></app-signin>
+        </div>
+
+        <div *ngIf="login || signin">
+          <button (click)="comeBack()" class="btn btn-outline-primary">Volver</button>
+        </div>
+
+        <div [ngClass]="{'hide': hide}">
+          <img class="img-right" src="../../assets/logo.png" alt="logo">
+          <h2>Descubre lo que está pasando en la ULPGC en este momento</h2><br><br>
+          <h5>Únete hoy a ULPGConnected</h5><br>
+          <div class="text-center">
+            <button (click)="showSignin()" class="btn btn-primary mb-3">Regístrate</button><br>
+            <button (click)="showLogin()" class="btn btn-outline-primary">Inicia sesión</button>
+          </div>
         </div>
       </div>
     </div>
