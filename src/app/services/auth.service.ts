@@ -33,16 +33,18 @@ export class AuthService {
 
     this.afAuth.auth.signInWithEmailAndPassword(email, password)
       .then((user)=>{
-        this.bd.collection("users").ref.where("username", "==", user.user.email).onSnapshot(snap =>{
+        this.bd.collection("users").ref.where("email", "==", user.user.email).onSnapshot(snap =>{
           snap.forEach(userRef => {
             this.currentUser = userRef.data();
             //setUserStatus
             this.setUserStatus(this.currentUser);
             // no tiene sentido
             if(userRef.data().role !== 2) {
-              this.router.navigate(["/"]);
+              console.log("Administrador logeado")
+              //this.router.navigate(["login"]);
             }else{
-              this.router.navigate(["/"]);
+              console.log("Usuario logeado")
+              //this.router.navigate(["login"]);
             }
           })
         })
@@ -79,7 +81,7 @@ export class AuthService {
           state: true,
           role: 2,
         };
-        
+
         //add the user to the database
         this.bd.collection("users").add(user)
           .then(user => {
