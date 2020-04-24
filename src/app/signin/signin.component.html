@@ -1,5 +1,8 @@
 <h3 class="text-center mb-2">Regístrate</h3><br>
 <div class="justify-content-center align-items-center">
+  <div class="row" *ngIf="authError">
+    <div class="col-12 alert alert-danger">{{authError?.message}}</div>
+  </div>
   <form role="form" action="" method="post" class="login-form">
     <div class="form-group">
       <label class="sr-only" for="form-name">Nombre</label>
