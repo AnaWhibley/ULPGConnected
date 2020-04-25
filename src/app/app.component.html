@@ -1,8 +1,8 @@
 <app-index *ngIf="logued">
 </app-index>
 
-<!-- AMIN -->
-<div>
+<!-- AMIN PARA VER ESTO PONER LOGUES A TRUE-->
+<div *ngIf="!logued">
     <div style="width:25%; float:left;">
         <app-navbar class="m-5" *ngIf="!logued"></app-navbar>
     </div>
