@@ -22,7 +22,9 @@
     "@angular/router": "~8.2.14",
     "firebase": "^7.14.1",
     "font-awesome": "^4.7.0",
+    "jquery": "^3.4.1",
     "open-iconic": "^1.1.1",
+    "popper.js": "^1.16.1-lts",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

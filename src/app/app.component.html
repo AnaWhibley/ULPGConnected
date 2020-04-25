@@ -1,1 +1,18 @@
-<app-index></app-index>
+<app-index *ngIf="logued">
+</app-index>
+
+<!-- AMIN -->
+<div>
+    <div style="width:25%; float:left;">
+        <app-navbar class="m-5" *ngIf="!logued"></app-navbar>
+    </div>
+    <div style="width:70%;float:right;">
+
+        <div class="container" style="text-align: center;width: 10%; margin-top: 10px;">
+            <img src="../../assets/logo.png" class="img-thumbnail img-circle ">
+        </div>
+        <hr>
+        <router-outlet></router-outlet>
+
+    </div>
+</div>

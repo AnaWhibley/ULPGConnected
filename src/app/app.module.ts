@@ -11,13 +11,21 @@ import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {FormsModule} from "@angular/forms";
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     IndexComponent,
-    SigninComponent
+    SigninComponent,
+    NavbarComponent,
+    HomeComponent,
+    PerfilComponent,
+    UsuariosComponent
   ],
   imports: [
     BrowserModule,
