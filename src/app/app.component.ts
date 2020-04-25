@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ulpgconnected';
+  logued: boolean = false;
+
+  constructor() {}
+
+  appLogin(){
+    this.logued = true;
+  }
+
+  appLogout(){
+    this.logued = false;
+  } 
 }
