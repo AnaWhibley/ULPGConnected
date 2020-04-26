@@ -3,9 +3,12 @@
         <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar usuario">
     </div>
     <div class="col-sm-6" style="text-align: right;">
-        <button class="btn  btn-info">
-            Crear Usuario 
-        </button>
+      <!-- Enlace para que vaya a la vista de crear-->
+       <a routerLink="/crear">
+         <button class="btn  btn-info">
+         Crear Usuario
+       </button>
+       </a>
     </div>
 </div>
 
@@ -48,7 +51,7 @@
                 <td> {{user.email}} </td>
 
                 <td>
-                    <button class="btn btn-warning btn-block">Editar</button>
+                    <button class="btn btn-warning btn-block" (click)="updateUser(user.propertyId)">Editar</button>
                     <button class="btn btn-danger btn-block" (click)="borrarUsuario(user.propertyId)">Borrar</button>
                 </td>
             </tr>
@@ -58,12 +61,12 @@
 <div class="row m-5">
     <div class="col-sm-6" style="text-align: left;">
         <button (click)="lastUsers()" class="btn  btn-info" *ngIf="!lastBtn">
-             Anterior 
+             Anterior
         </button>
     </div>
     <div class="col-sm-6" style="text-align: right;">
         <button (click)="nextUsers()" class="btn  btn-info" *ngIf="!nextBtn">
-            Siguiente 
+            Siguiente
         </button>
     </div>
 </div>

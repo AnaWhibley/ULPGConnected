@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
-import { UserService } from '../services/user.service';
-
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -13,7 +13,7 @@ export class UsuariosComponent implements OnInit {
   users: Object[] = [];
   buscando = false;
   bTermino = '';
-  roles = ['Todos', 'Administradores', 'Usuarios']; 
+  roles = ['Todos', 'Administradores', 'Usuarios'];
   rolOrder = 0;
   nameOrder = true; // Primero Administradores luego Usuarios
   lastBtn = true;
@@ -26,8 +26,9 @@ export class UsuariosComponent implements OnInit {
 
 
 
-  constructor(private userService: UserService) { 
-   
+  constructor(private userService: UserService,
+              private router: Router) {
+
   }
 
   rolChange(){
@@ -59,16 +60,16 @@ export class UsuariosComponent implements OnInit {
         this.ini = this.fin;
         this.fin = this.users.length;
       }
-      
+
 /*       console.log('====================');
       console.log('DEBERIA APARECER 1 VEZ', this.ini);
       console.log('fin', this.fin);
       console.log('===================='); */
 
 
-    }); 
+    });
 
-    
+
   }
 
   buscar(termino: string){
@@ -87,6 +88,10 @@ export class UsuariosComponent implements OnInit {
 
   }
 
+  updateUser(id){
+    id ? this.router.navigate(['/detalles', id]) : {};
+  }
+
   nextUsers(){
 /*     console.log('1 marcha alante ini', this.ini);
     console.log('1 marcha alante fin', this.fin);
@@ -98,7 +103,7 @@ export class UsuariosComponent implements OnInit {
       this.lastBtn = false;
 
       this.usersPage = this.users.slice(this.ini,this.fin);
-  
+
       this.ini = this.fin;
       this.fin += 5
 
@@ -128,7 +133,7 @@ export class UsuariosComponent implements OnInit {
     this.ini -= 5;
 
     this.usersPage = this.users.slice(this.ini,this.fin);
-/* 
+/*
     console.log('2 marcha atras ini', this.ini);
     console.log('2 marcha atras fin', this.fin);
     console.log('====================');

@@ -1,0 +1,53 @@
+<div class="contenedor">
+  <form>
+    <div class="form-group username">
+      <label for="username">Usuario</label>
+      <input  ngModel name="username" #username="ngModel" (change)="updateUser(username)" type="text" class="form-control" id="username">
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input ngModel name="name" #name="ngModel" (change)="updateUser(name)" type="text" class="form-control" id="name">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="surname">Apellidos</label>
+          <input ngModel name="surname" #surname="ngModel" (change)="updateUser(surname)" type="text" class="form-control" id="surname">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input ngModel name="email" #email="ngModel" (change)="updateUser(email)" type="text" class="form-control" id="email">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input ngModel name="password" #password="ngModel" (change)="updateUser(password)" type="password" class="form-control" id="password">
+        </div>
+      </div>
+    </div>
+    <div class="row check">
+      <input ngModel name="checkbox" #admin="ngModel" (change)="updateUser(admin)" type="checkbox" >
+      <span class="administrator">Administrador</span>
+    </div>
+    <div class="row ">
+      <div class="buttons">
+        <span class="buttonCreate">
+          <a routerLink="/usuarios">
+            <button class="btn btn-danger">Cancelar</button>
+          </a>
+      </span>
+      <span>
+          <button class="btn btn-primary" (click)="createUser()">Guardar</button>
+      </span>
+      </div>
+    </div>
+
+  </form>
+</div>
