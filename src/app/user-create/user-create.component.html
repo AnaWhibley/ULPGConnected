@@ -34,16 +34,16 @@
     </div>
     <div class="row check">
       <input ngModel name="checkbox" #admin="ngModel" (change)="updateUser(admin)" type="checkbox" >
-      <span class="administrator">Administrador</span>
+      <span class="admin">Administrador</span>
     </div>
     <div class="row ">
       <div class="buttons">
-        <span class="buttonCreate">
+        <span class="button-cancel">
           <a routerLink="/usuarios">
             <button class="btn btn-danger">Cancelar</button>
           </a>
       </span>
-      <span>
+      <span class="button-create">
           <button class="btn btn-primary" (click)="createUser()">Guardar</button>
       </span>
       </div>
