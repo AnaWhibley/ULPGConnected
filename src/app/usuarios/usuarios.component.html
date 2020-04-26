@@ -51,7 +51,7 @@
                 <td> {{user.email}} </td>
 
                 <td>
-                    <button class="btn btn-warning btn-block">Editar</button>
+                    <button class="btn btn-warning btn-block" (click)="updateUser(user.propertyId)">Editar</button>
                     <button class="btn btn-danger btn-block" (click)="borrarUsuario(user.propertyId)">Borrar</button>
                 </td>
             </tr>

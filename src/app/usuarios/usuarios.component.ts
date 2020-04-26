@@ -1,6 +1,6 @@
-import { Component, OnInit} from '@angular/core';
-import { UserService } from '../services/user.service';
-
+import {Component, OnInit} from '@angular/core';
+import {UserService} from '../services/user.service';
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -26,7 +26,8 @@ export class UsuariosComponent implements OnInit {
 
 
 
-  constructor(private userService: UserService) {
+  constructor(private userService: UserService,
+              private router: Router) {
 
   }
 
@@ -85,6 +86,10 @@ export class UsuariosComponent implements OnInit {
     console.log(id);
     this.userService.deleteUser(id);
 
+  }
+
+  updateUser(id){
+    id ? this.router.navigate(['/detalles', id]) : {};
   }
 
   nextUsers(){
