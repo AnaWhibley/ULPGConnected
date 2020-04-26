@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {from, Observable} from "rxjs";
@@ -17,8 +17,8 @@ export class UserService {
   }
 
   addUser(newUser) {
-    this.db.collection("products").add({
-      id: newUser.id,
+    this.db.collection("users").add({
+      id: Math.random().toString(36).substr(2,10),
       name: newUser.name,
       surname: newUser.surname,
       username: newUser.username,

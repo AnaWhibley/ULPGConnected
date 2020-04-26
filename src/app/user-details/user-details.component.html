@@ -1,0 +1,53 @@
+<div class="contenedor">
+  <form>
+    <div class="form-group username">
+      <label for="username">Usuario</label>
+      <input [(ngModel)]="user.username" name="username" #username="ngModel" (change)="updateUserDetails(username)" type="text" class="form-control" id="username">
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="name">Nombre</label>
+          <input [(ngModel)]="user.name" name="name" #name="ngModel" (change)="updateUserDetails(name)" type="text" class="form-control" id="name">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="surname">Apellidos</label>
+          <input [(ngModel)]="user.surname" name="surname" #surname="ngModel" (change)="updateUserDetails(surname)" type="text" class="form-control" id="surname">
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input [(ngModel)]="user.email" name="email" #email="ngModel" (change)="updateUserDetails(email)" type="text" class="form-control" id="email">
+        </div>
+      </div>
+      <div class="col">
+        <div class="form-group">
+          <label for="password">Contraseña</label>
+          <input [(ngModel)]="user.password" name="password" #password="ngModel" (change)="updateUserDetails(password)" type="password" class="form-control" id="email">
+        </div>
+      </div>
+    </div>
+    <div class="row check">
+      <input ngModel name="checkbox" #admin="ngModel" (change)="updateUserDetails(admin)" type="checkbox" >
+      <span class="administrator">Administrador</span>
+    </div>
+    <div class="row ">
+      <div class="buttons">
+        <span class="buttonCreate">
+          <a routerLink="/usuarios">
+            <button class="btn btn-danger">Cancelar</button>
+          </a>
+      </span>
+        <span>
+          <button class="btn btn-primary" (click)="updateUser()">Guardar</button>
+      </span>
+      </div>
+    </div>
+
+  </form>
+</div>

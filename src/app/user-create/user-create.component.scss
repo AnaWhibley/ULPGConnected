@@ -1,0 +1,23 @@
+.contenedor{
+  padding-left: 9rem;
+  margin-right: 10rem;
+  .username{
+    padding: 1rem 22rem;
+  }
+  .formulario{
+    padding: 0 10rem;
+  }
+  .check{
+    padding: 2rem 0;
+    padding-left: 28rem;
+    .administrator{
+      padding-left: 1rem;
+    }
+  }
+  .buttons {
+    padding: 2rem 25rem;
+    .buttonCreate{
+      margin-right: 2rem;
+    }
+  }
+}

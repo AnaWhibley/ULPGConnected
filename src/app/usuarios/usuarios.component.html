@@ -3,9 +3,12 @@
         <input #termino type="text" class="form-control" placeholder="Buscar usuario">
     </div>
     <div class="col-sm-6" style="text-align: right;">
-        <button class="btn  btn-info">
-            Crear Usuario 
-        </button>
+      <!-- Enlace para que vaya a la vista de crear-->
+       <a routerLink="/crear">
+         <button class="btn  btn-info">
+         Crear Usuario
+       </button>
+       </a>
     </div>
 </div>
 <div class="row m-5">
@@ -47,7 +50,9 @@
                 <td>@mdo</td>
                 <td>@mdo</td>
                 <td>
-                    <button class="btn btn-primary">Editar</button>
+                    <a routerLink="/detalles">
+                      <button class="btn btn-primary">Editar</button>
+                    </a>
                     <button class="btn btn-secondary">Borrar</button>
                 </td>
             </tr>
@@ -79,12 +84,12 @@
 <div class="row m-5">
     <div class="col-sm-6" style="text-align: left;">
         <button class="btn  btn-outline-info">
-             Anterior 
+             Anterior
         </button>
     </div>
     <div class="col-sm-6" style="text-align: right;">
         <button class="btn  btn-outline-info">
-            Siguiente 
+            Siguiente
         </button>
     </div>
 </div>
