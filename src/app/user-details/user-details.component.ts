@@ -39,9 +39,8 @@ export class UserDetailsComponent implements OnInit {
     fieldValue && fieldValue.name && fieldValue.name === 'checkbox' && fieldValue.viewModel === true ? this.user.role = "1" : "2";
   }
   updateUser(){
-    console.log(this.userId);
-    console.log(this.user);
     this.userService.updateUser(this.userId, this.user);
+    this.router.navigate(['/usuarios']);
   }
 
 }

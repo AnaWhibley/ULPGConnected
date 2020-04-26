@@ -39,7 +39,7 @@ export class UserCreateComponent implements OnInit {
 
  createUser(){
   this.userService.addUser(this.user);
-  this.router.navigate['/usuarios'];
+   this.router.navigate(['/usuarios']);
  }
 
 }
