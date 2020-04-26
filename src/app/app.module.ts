@@ -16,6 +16,9 @@ import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { ActiveUsersPipe } from './pipes/active-users.pipe';
+import { BuscarUsuarioPipe } from './pipes/buscar-usuario.pipe';
+import { RolOrderPipe } from './pipes/rol-order.pipe';
+import { NameOrderPipe } from './pipes/name-order.pipe';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { ActiveUsersPipe } from './pipes/active-users.pipe';
     HomeComponent,
     PerfilComponent,
     UsuariosComponent,
-    ActiveUsersPipe
+    ActiveUsersPipe,
+    BuscarUsuarioPipe,
+    RolOrderPipe,
+    NameOrderPipe
   ],
   imports: [
     BrowserModule,

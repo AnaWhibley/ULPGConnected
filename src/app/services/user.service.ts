@@ -65,6 +65,7 @@ export class UserService {
   }
 
   deleteUser(propertyId) {
+    console.log('SERVICE: ',propertyId);
     this.db.collection("users")
       .doc(propertyId)
       .delete()
