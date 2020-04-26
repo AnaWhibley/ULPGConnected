@@ -15,6 +15,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { ActiveUsersPipe } from './pipes/active-users.pipe';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
     NavbarComponent,
     HomeComponent,
     PerfilComponent,
-    UsuariosComponent
+    UsuariosComponent,
+    ActiveUsersPipe
   ],
   imports: [
     BrowserModule,

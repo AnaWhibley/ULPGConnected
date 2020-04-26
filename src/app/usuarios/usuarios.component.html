@@ -8,6 +8,7 @@
         </button>
     </div>
 </div>
+
 <div class="row m-5">
     <table class="table">
         <thead class="thead-dark">
@@ -27,7 +28,7 @@
                     <i class="icono izq fa fa-chevron-down"></i>
                 </th>
                 <th scope="col">
-                    Fecha Creación
+                    Rol
                     <i class="icono izq fa fa-chevron-up"></i>
                     <i class="icono izq fa fa-chevron-down"></i>
                 </th>
@@ -40,39 +41,20 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+            <tr *ngFor="let user of users | activeUsers">
+                <th scope="row">{{user.name}}</th>
+                <td>{{user.username}}</td>
+                <td>{{user.surname}}</td>
+                <td *ngIf=" user.role == 1"> Administrador</td>
+                <td *ngIf=" user.role == 2"> Usuario</td>
+                <td>{{user.id}}</td>
+
                 <td>
                     <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-secondary">Borrar</button>
+                    <button class="btn btn-secondary" (click)="borrarUsuario( user.id )">Borrar</button>
                 </td>
             </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-secondary">Borrar</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-secondary">Borrar</button>
-                </td>
-            </tr>
+
         </tbody>
     </table>
 </div>
