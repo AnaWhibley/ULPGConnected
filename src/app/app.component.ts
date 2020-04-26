@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from './services/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,6 @@ export class AppComponent {
   title = 'ulpgconnected';
   logued: boolean = false;
 
-  constructor() {}
 
   appLogin(){
     this.logued = true;

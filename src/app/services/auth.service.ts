@@ -43,8 +43,9 @@ export class AuthService {
               console.log("Administrador logeado")
               //this.router.navigate(["login"]);
             }else{
-              console.log("Usuario logeado")
-              //this.router.navigate(["login"]);
+              console.log("Usuario logeado");
+              //this.router.navigate(["home"]);
+              //por aqui  
             }
           })
         })
@@ -100,5 +101,4 @@ export class AuthService {
         this.eventAuthError.next(err);
       })
   }
-
 }
