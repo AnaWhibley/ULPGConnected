@@ -1,6 +1,6 @@
 <div class="row m-5">
     <div class="col-sm-6">
-        <input #termino type="text" class="form-control" placeholder="Buscar usuario">
+        <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar usuario">
     </div>
     <div class="col-sm-6" style="text-align: right;">
       <!-- Enlace para que vaya a la vista de crear-->
@@ -11,71 +11,48 @@
        </a>
     </div>
 </div>
+
 <div class="row m-5">
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Usuario
-                    <i class="icono izq fa fa-chevron-up"></i>
-                    <i class="icono izq fa fa-chevron-down"></i>
+                    <i class="icono izq fa fa-chevron-up" *ngIf="nameOrder" (click)="nameOrder = !nameOrder"></i>
+                    <i class="icono izq fa fa-chevron-down" *ngIf="!nameOrder" (click)="nameOrder = !nameOrder"></i>
                 </th>
                 <th scope="col">
                     Nombre
-                    <i class="icono izq fa fa-chevron-up"></i>
-                    <i class="icono izq fa fa-chevron-down"></i>
+                    <!--                    <i class="icono izq fa fa-chevron-up"></i>
+                    <i class="icono izq fa fa-chevron-down"></i> -->
                 </th>
                 <th scope="col">
                     Apellidos
-                    <i class="icono izq fa fa-chevron-up"></i>
-                    <i class="icono izq fa fa-chevron-down"></i>
+                    <!--                     <i class="icono izq fa fa-chevron-up"></i>
+                    <i class="icono izq fa fa-chevron-down"></i> -->
                 </th>
                 <th scope="col">
-                    Fecha Creación
-                    <i class="icono izq fa fa-chevron-up"></i>
-                    <i class="icono izq fa fa-chevron-down"></i>
+                    Rol
+                    <i class="icono izq fa fa-retweet" (click)="rolChange()"></i> {{roles[rolOrder]}}
                 </th>
                 <th scope="col">
-                    Última conexión
-                    <i class="icono izq fa fa-chevron-up"></i>
-                    <i class="icono izq fa fa-chevron-down"></i>
+                    Email
+                    <!--                     <i class="icono izq fa fa-chevron-up"></i>
+                    <i class="icono izq fa fa-chevron-down"></i> -->
                 </th>
-                <th scope="col"><i class="icono izq fa fa-cog"></i></th>
+                <th scope="col" class="deco"><i class="icono izq fa fa-cog" style="width: 100%;"></i></th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+            <tr *ngFor="let user of usersPage | buscarUsuario:users:bTermino:buscando |  rolOrder:rolOrder | nameOrder:nameOrder">
+                <th scope="row"> {{user.name}} </th>
+                <td> {{user.username}} </td>
+                <td> {{user.surname}} </td>
+                <td> {{roles[user.role]}} </td>
+                <td> {{user.email}} </td>
+
                 <td>
-                    <a routerLink="/detalles">
-                      <button class="btn btn-primary">Editar</button>
-                    </a>
-                    <button class="btn btn-secondary">Borrar</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-secondary">Borrar</button>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
-                <td>
-                    <button class="btn btn-primary">Editar</button>
-                    <button class="btn btn-secondary">Borrar</button>
+                    <button class="btn btn-warning btn-block">Editar</button>
+                    <button class="btn btn-danger btn-block" (click)="borrarUsuario(user.propertyId)">Borrar</button>
                 </td>
             </tr>
         </tbody>
@@ -83,12 +60,12 @@
 </div>
 <div class="row m-5">
     <div class="col-sm-6" style="text-align: left;">
-        <button class="btn  btn-outline-info">
+        <button (click)="lastUsers()" class="btn  btn-info" *ngIf="!lastBtn">
              Anterior
         </button>
     </div>
     <div class="col-sm-6" style="text-align: right;">
-        <button class="btn  btn-outline-info">
+        <button (click)="nextUsers()" class="btn  btn-info" *ngIf="!nextBtn">
             Siguiente
         </button>
     </div>

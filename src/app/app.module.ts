@@ -11,12 +11,17 @@ import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/firestore";
 import {AngularFireStorage} from "@angular/fire/storage";
 import {FormsModule} from "@angular/forms";
-import {NavbarComponent} from './navbar/navbar.component';
-import {HomeComponent} from './home/home.component';
-import {PerfilComponent} from './perfil/perfil.component';
-import {UsuariosComponent} from './usuarios/usuarios.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { HomeComponent } from './home/home.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 import {UserCreateComponent} from './user-create/user-create.component';
 import {UserDetailsComponent} from './user-details/user-details.component';
+import { ActiveUsersPipe } from './pipes/active-users.pipe';
+import { BuscarUsuarioPipe } from './pipes/buscar-usuario.pipe';
+import { RolOrderPipe } from './pipes/rol-order.pipe';
+import { NameOrderPipe } from './pipes/name-order.pipe';
+
 
 @NgModule({
   declarations: [
@@ -29,7 +34,11 @@ import {UserDetailsComponent} from './user-details/user-details.component';
     PerfilComponent,
     UsuariosComponent,
     UserCreateComponent,
-    UserDetailsComponent
+    UserDetailsComponent,
+    ActiveUsersPipe,
+    BuscarUsuarioPipe,
+    RolOrderPipe,
+    NameOrderPipe
   ],
   imports: [
     BrowserModule,
