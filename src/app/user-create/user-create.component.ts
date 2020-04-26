@@ -33,12 +33,11 @@ export class UserCreateComponent implements OnInit {
     fieldValue && fieldValue.name && fieldValue.name === 'email' ? this.user.email = fieldValue.viewModel : '';
     fieldValue && fieldValue.name && fieldValue.name === 'password' ? this.user.password = fieldValue.viewModel : '';
     fieldValue && fieldValue.name && fieldValue.name === 'checkbox' && fieldValue.viewModel === true ? this.user.role = "1" : "2";
-    console.log(this.user);
 
   }
 
  createUser(){
-  this.userService.addUser(this.user);
+   this.userService.addUser(this.user);
    this.router.navigate(['/usuarios']);
  }
 
