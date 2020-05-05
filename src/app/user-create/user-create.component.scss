@@ -1,0 +1,22 @@
+.contenedor{
+  margin-right: 10rem;
+
+  .username{
+    padding: 0 13rem;
+  }
+  .check{
+    padding: 2rem 1rem;
+    .admin{
+      padding: 0 .5rem;
+    }
+  }
+  .buttons{
+    padding: 1rem 1rem;
+    .button-cancel{
+      padding-right: 1rem;
+    }
+    .button-create{
+      padding-left: 1rem;
+    }
+  }
+}

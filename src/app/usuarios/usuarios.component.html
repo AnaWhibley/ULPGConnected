@@ -1,0 +1,72 @@
+<div class="row m-5">
+    <div class="col-sm-6">
+        <input #termino type="text" (keyup)="buscar(termino.value)" class="form-control" placeholder="Buscar usuario">
+    </div>
+    <div class="col-sm-6" style="text-align: right;">
+      <!-- Enlace para que vaya a la vista de crear-->
+       <a routerLink="/crear">
+         <button class="btn  btn-info">
+         Crear Usuario
+       </button>
+       </a>
+    </div>
+</div>
+
+<div class="row m-5">
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Usuario
+                    <i class="icono izq fa fa-chevron-up" *ngIf="nameOrder" (click)="nameOrder = !nameOrder"></i>
+                    <i class="icono izq fa fa-chevron-down" *ngIf="!nameOrder" (click)="nameOrder = !nameOrder"></i>
+                </th>
+                <th scope="col">
+                    Nombre
+                    <!--                    <i class="icono izq fa fa-chevron-up"></i>
+                    <i class="icono izq fa fa-chevron-down"></i> -->
+                </th>
+                <th scope="col">
+                    Apellidos
+                    <!--                     <i class="icono izq fa fa-chevron-up"></i>
+                    <i class="icono izq fa fa-chevron-down"></i> -->
+                </th>
+                <th scope="col">
+                    Rol
+                    <i class="icono izq fa fa-retweet" (click)="rolChange()"></i> {{roles[rolOrder]}}
+                </th>
+                <th scope="col">
+                    Email
+                    <!--                     <i class="icono izq fa fa-chevron-up"></i>
+                    <i class="icono izq fa fa-chevron-down"></i> -->
+                </th>
+                <th scope="col" class="deco"><i class="icono izq fa fa-cog" style="width: 100%;"></i></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of usersPage | buscarUsuario:users:bTermino:buscando |  rolOrder:rolOrder | nameOrder:nameOrder">
+                <th scope="row"> {{user.name}} </th>
+                <td> {{user.username}} </td>
+                <td> {{user.surname}} </td>
+                <td> {{roles[user.role]}} </td>
+                <td> {{user.email}} </td>
+
+                <td>
+                    <button class="btn btn-warning btn-block" (click)="updateUser(user.propertyId)">Editar</button>
+                    <button class="btn btn-danger btn-block" (click)="borrarUsuario(user.propertyId)">Borrar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="row m-5">
+    <div class="col-sm-6" style="text-align: left;">
+        <button (click)="lastUsers()" class="btn  btn-info" *ngIf="!lastBtn">
+             Anterior
+        </button>
+    </div>
+    <div class="col-sm-6" style="text-align: right;">
+        <button (click)="nextUsers()" class="btn  btn-info" *ngIf="!nextBtn">
+            Siguiente
+        </button>
+    </div>
+</div>
