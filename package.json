@@ -23,7 +23,7 @@
     "@ng-bootstrap/ng-bootstrap": "^5.3.0",
     "firebase": "^7.14.1",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "open-iconic": "^1.1.1",
     "popper.js": "^1.16.1-lts",
     "rxjs": "~6.4.0",
