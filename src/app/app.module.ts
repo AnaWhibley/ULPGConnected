@@ -21,6 +21,8 @@ import { ActiveUsersPipe } from './pipes/active-users.pipe';
 import { BuscarUsuarioPipe } from './pipes/buscar-usuario.pipe';
 import { RolOrderPipe } from './pipes/rol-order.pipe';
 import { NameOrderPipe } from './pipes/name-order.pipe';
+import { PostListComponent } from './post-list/post-list.component';
+import { PostItemComponent } from './post-item/post-item.component';
 
 
 @NgModule({
@@ -38,7 +40,9 @@ import { NameOrderPipe } from './pipes/name-order.pipe';
     ActiveUsersPipe,
     BuscarUsuarioPipe,
     RolOrderPipe,
-    NameOrderPipe
+    NameOrderPipe,
+    PostListComponent,
+    PostItemComponent
   ],
   imports: [
     BrowserModule,

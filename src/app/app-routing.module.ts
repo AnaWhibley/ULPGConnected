@@ -6,6 +6,8 @@ import {PerfilComponent} from './perfil/perfil.component';
 import {UsuariosComponent} from './usuarios/usuarios.component';
 import {UserDetailsComponent} from './user-details/user-details.component';
 import {UserCreateComponent} from './user-create/user-create.component';
+import {PostItemComponent} from "./post-item/post-item.component";
+import {PostListComponent} from "./post-list/post-list.component";
 
 
 const ROUTES: Routes = [
@@ -16,6 +18,7 @@ const ROUTES: Routes = [
   { path: 'detalles/:id', component: UserDetailsComponent },
   { path: 'crear', component: UserCreateComponent },
   { path: '', pathMatch: 'full', redirectTo: 'inicio'},
+  { path: 'posts', component: PostListComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'inicio'}
 ];
 
