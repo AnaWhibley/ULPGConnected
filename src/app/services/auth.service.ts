@@ -40,12 +40,18 @@ export class AuthService {
             this.setUserStatus(this.currentUser);
             // no tiene sentido
             if(userRef.data().role !== 2) {
-              console.log("Administrador logeado")
+              console.log("Administrador logeado");
+
+              // Amin tocando
+              this.userStatusChanges.next(this.currentUser);
+              this.ngZone.run(() => this.router.navigate(["home"]));
               //this.router.navigate(["login"]);
             }else{
               console.log("Usuario logeado");
+              // Amin tocando
+              this.userStatusChanges.next(this.currentUser);
+              this.ngZone.run(() => this.router.navigate(["home"]));
               //this.router.navigate(["home"]);
-              //por aqui  
             }
           })
         })
@@ -58,6 +64,7 @@ export class AuthService {
     this.afAuth.auth.signOut()
       .then(()=>{
         console.log("user signed out successfully");
+        this.userStatusChanges.next(undefined);
         this.currentUser = null;
         //set the listenener to be null, for the UI to react
         this.setUserStatus(null);
