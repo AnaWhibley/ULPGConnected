@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
+import {Router} from '@angular/router';
+import {startWith} from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -10,14 +12,15 @@ export class AppComponent implements OnInit {
   title = 'ulpgconnected';
   logued: boolean = false;
 
-  constructor (private authService: AuthService){}
+  constructor (private authService: AuthService, private router: Router){}
 
    ngOnInit(){
-      this.authService.user$
-            .subscribe( log => {
-              this.logued = log;
-              console.log('Alguien ha hecho log?', this.logued);
-            })
+      this.authService.userStatusChanges
+            .subscribe( userDetails => {
+              this.logued = !!userDetails;
+              console.log('Alguien ha hecho log?', userDetails, !!userDetails);
+              this.router.navigate(['']);
+            });
    }
 
 

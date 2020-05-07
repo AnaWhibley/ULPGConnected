@@ -11,15 +11,15 @@ import {PostListComponent} from "./post-list/post-list.component";
 
 
 const ROUTES: Routes = [
-  { path: 'inicio', component: IndexComponent },
+  // { path: 'inicio', component: IndexComponent },
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'me', component: PerfilComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'detalles/:id', component: UserDetailsComponent },
   { path: 'crear', component: UserCreateComponent },
-  { path: '', pathMatch: 'full', redirectTo: 'inicio'},
   { path: 'posts', component: PostListComponent},
-  { path: '**', pathMatch: 'full', redirectTo: 'inicio'}
+  { path: '**', pathMatch: 'full', redirectTo: ''}
 ];
 
 @NgModule({

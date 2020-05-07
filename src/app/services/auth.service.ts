@@ -10,8 +10,6 @@ import {AngularFirestore} from "@angular/fire/firestore";
 })
 export class AuthService {
 
-  user$ = new EventEmitter<boolean>();
-
   public currentUser: any;
   public userStatus: string;
   public userStatusChanges: BehaviorSubject<string> = new BehaviorSubject<string>(this.userStatus);
@@ -45,13 +43,13 @@ export class AuthService {
               console.log("Administrador logeado");
 
               // Amin tocando
-              this.user$.emit(true);
+              this.userStatusChanges.next(this.currentUser);
               this.ngZone.run(() => this.router.navigate(["home"]));
               //this.router.navigate(["login"]);
             }else{
               console.log("Usuario logeado");
               // Amin tocando
-              this.user$.emit(true);
+              this.userStatusChanges.next(this.currentUser);
               this.ngZone.run(() => this.router.navigate(["home"]));
               //this.router.navigate(["home"]);
             }
@@ -66,6 +64,7 @@ export class AuthService {
     this.afAuth.auth.signOut()
       .then(()=>{
         console.log("user signed out successfully");
+        this.userStatusChanges.next(undefined);
         this.currentUser = null;
         //set the listenener to be null, for the UI to react
         this.setUserStatus(null);
