@@ -1,16 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-
+import {Component, Input, OnInit} from '@angular/core';
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-post-item',
   templateUrl: './post-item.component.html',
   styleUrls: ['./post-item.component.scss']
 })
 export class PostItemComponent implements OnInit {
-  private date: Date;
-  constructor() { }
+
+  @Input() title: String;
+  @Input() description: String;
+  @Input() date: String;
+  @Input() user: String;
+  constructor( private router: Router) { }
 
   ngOnInit() {
-    this.date = new Date();
+  }
+  goToDetails(){
+    this.router.navigate(['/details']);
   }
 
 }

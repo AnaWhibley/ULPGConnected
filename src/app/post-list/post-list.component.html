@@ -1,2 +1,8 @@
-<app-post-item>
-</app-post-item>
+<div>
+  <div>
+    <div *ngFor="let post of posts">
+      <app-post-item [title]="post.title" [description]="post.description" [date]="post.date" [user]="post.user">
+      </app-post-item>
+    </div>
+  </div>
+</div>

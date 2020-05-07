@@ -22,10 +22,6 @@ export class UsuariosComponent implements OnInit {
   ini = 0;
   fin = 5;
 
-
-
-
-
   constructor(private userService: UserService,
               private router: Router) {
 

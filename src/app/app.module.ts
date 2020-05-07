@@ -23,6 +23,7 @@ import { RolOrderPipe } from './pipes/rol-order.pipe';
 import { NameOrderPipe } from './pipes/name-order.pipe';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostItemComponent } from './post-item/post-item.component';
+import { PostDetailsComponent } from './post-details/post-details.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { PostItemComponent } from './post-item/post-item.component';
     RolOrderPipe,
     NameOrderPipe,
     PostListComponent,
-    PostItemComponent
+    PostItemComponent,
+    PostDetailsComponent
   ],
   imports: [
     BrowserModule,
