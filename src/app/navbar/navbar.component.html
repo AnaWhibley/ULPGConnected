@@ -6,8 +6,10 @@
         </div>
         <div class="col info">
             <p>
-                Nombre Apellidos
-                <br> rol
+                {{ user.name}} {{user.surname}}
+                <br>
+                <span class="badge badge-pill badge-info" *ngIf="user.role == 2"> Usuario </span>
+                <span class="badge badge-pill badge-success" *ngIf="user.role == 1"> Administrador </span>
             </p>
         </div>
 
@@ -31,6 +33,14 @@
                 <a class="nav-link" routerLink="usuarios">
                     <i class="icono izq fa fa-cog"></i>Gestión de usuarios
                 </a>
+            </li>
+            <br>
+            <br>
+            <li class="nav-item">
+                <button type="button" class="btn btn-danger btn-block" (click)="logout()">
+                    <i class="icono izq fa fa-sign-out-alt"></i>Desconectarse
+                </button>
+
             </li>
         </ul>
     </div>
