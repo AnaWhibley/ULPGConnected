@@ -9,7 +9,7 @@ import {AngularFirestore} from "@angular/fire/firestore";
   providedIn: 'root'
 })
 export class AuthService {
-  
+
   user$ = new EventEmitter<boolean>();
 
   public currentUser: any;
