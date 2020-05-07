@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilComponent implements OnInit {
 
-  constructor() { }
+  me: any;
+
+  constructor( private authService: AuthService) { }
 
   ngOnInit() {
+    this.authService.userStatusChanges
+            .subscribe( userDetails => {
+              this.me = userDetails;
+              console.log('PERFIL: ', userDetails);
+            });
+  }
+
+
+  modMisDatos(){
+    
   }
 
 }

@@ -1,1 +1,40 @@
-<p>perfil works!</p>
+<h2> Datos de {{ me.name }}</h2>
+<div class="m-5">
+    <table class="table table-hover table-light">
+        <thead>
+            <tr>
+                <th style="text-align: left;">USUARIO</th>
+                <th style="text-align: left;"> {{me.name}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th style="text-align: left; width: 20%;">ROL</th>
+                <td style="text-align: left; width: 80%;">
+                    <span class="badge badge-pill badge-info" *ngIf="me.role == 2"> Usuario </span>
+                    <span class="badge badge-pill badge-success" *ngIf="me.role == 1"> Administrador </span>
+                </td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Nombre</th>
+                <td style="text-align: left;">{{me.username}}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Apellidos</th>
+                <td style="text-align: left;">{{me.surname}}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Correo</th>
+                <td style="text-align: left;">{{me.email}}</td>
+            </tr>
+            <tr>
+                <th></th>
+                <td style="text-align: left;">
+                    <button type="button" class="btn btn-warning" (click)="modMisDatos()">
+                        <i class="icono izq fa fa-cog"></i> Modificar datos
+                    </button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
