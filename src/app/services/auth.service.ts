@@ -66,7 +66,6 @@ export class AuthService {
     this.afAuth.auth.signOut()
       .then(()=>{
         console.log("user signed out successfully");
-        this.user$.emit(false);
         this.currentUser = null;
         //set the listenener to be null, for the UI to react
         this.setUserStatus(null);

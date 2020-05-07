@@ -31,11 +31,11 @@ export class SigninComponent implements OnInit {
 
   signUp() {
     this.userService.checkUsername(this.user.username).subscribe((dato:any) => {
-      if (typeof dato === 'undefined') {
+      if (typeof dato !== 'undefined') {
         this.auth.signUp(this.user.name,this.user.surname,this.user.username,
           this.user.email, this.user.password);
       } else {
-        alert("El usuario ya se encuentra en uso, pruebo con otro diferente")
+        alert("El usuario ya está existe, prueba con otro diferente");
       }
     })
 
