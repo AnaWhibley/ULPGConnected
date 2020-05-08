@@ -8,35 +8,43 @@ import {PostItemComponent} from "../post-item/post-item.component";
 })
 export class PostListComponent implements OnInit {
   private posts;
+  private date: String;
+  private aux: Date;
+  private mList;
   constructor() { }
 
   ngOnInit() {
+    this.aux = new Date();
+    this.mList = [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    this.date = String(this.aux.getDay() + " " + this.mList[this.aux.getMonth()]);
     this.posts = [
       {
         title: "Se cancelan las clases",
         description: "Las clases han sido suspendidas debido al COVID19",
-        date: new Date(),
+        date: this.date,
         user: "Pedro Sánchez",
         username: "peterSa"
       },
       {
         title: "No se podrá salir a la calle",
         description: "No se podrá salir a la calle hasta nuevo aviso",
-        date: new Date(),
+        date: this.date,
         user: "Pedro Sánchez",
         username: "peterSa"
       },
       {
         title: "Se están desarrollando vacunas",
         description: "Las clases han sido suspendidas debido al COVID19",
-        date: new Date(),
+        date: this.date,
         user: "Pedro Sánchez",
         username: "peterSa"
       },
       {
         title: "Amin ponte a trabajar",
         description: "Amin no trabaja, deberíamos echarlo del grupo",
-        date: new Date(),
+        date: this.date,
         user: "Grupo 11",
         username: "11group"
       }
