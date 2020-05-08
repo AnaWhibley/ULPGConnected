@@ -30,11 +30,14 @@ export class SigninComponent implements OnInit {
   }
 
   signUp() {
-    /*this.userService.checkUsername(this.user.username).subscribe((dato:any) => {
-      if (typeof dato !== 'undefined') {*/
+    this.userService.checkUsername(this.user.username).subscribe((dato:any) => {
+      if (typeof dato !== 'undefined') {
+        alert("This username already exist");
+      }else{
         this.auth.signUp(this.user.name,this.user.surname,this.user.username,
           this.user.email, this.user.password);
-/*      }
-    })*/
+        console.log("se puede añadir");
+      }
+    })
   }
 }

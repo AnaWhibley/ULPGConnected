@@ -6,23 +6,23 @@
   <form role="form" action="" method="post" class="login-form">
     <div class="form-group">
       <label class="sr-only" for="form-name">Nombre</label>
-      <input type="text" name="form-name" placeholder="Nombre" class="form-name form-control" id="form-name" [(ngModel)]="user.name" >
+      <input type="text" name="form-name" placeholder="Nombre" class="form-name form-control" id="form-name" [(ngModel)]="user.name" required>
     </div>
     <div class="form-group">
       <label class="sr-only" for="form-lastname">Apellidos</label>
-      <input type="text" name="form-lastname" placeholder="Apellidos" class="form-name form-control" id="form-lastname" [(ngModel)]="user.surname" >
+      <input type="text" name="form-lastname" placeholder="Apellidos" class="form-name form-control" id="form-lastname" [(ngModel)]="user.surname" required>
     </div>
     <div class="form-group">
       <label class="sr-only" for="form-username">Username</label>
-      <input type="text" name="form-username" placeholder="Username" class="form-username form-control" id="form-username" [(ngModel)]="user.username">
+      <input type="text" name="form-username" placeholder="Username" class="form-username form-control" id="form-username" [(ngModel)]="user.username" required>
     </div>
     <div class="form-group">
       <label class="sr-only" for="form-email">Email</label>
-      <input type="text" name="form-email" placeholder="Email" class="form-username form-control" id="form-email" [(ngModel)]="user.email">
+      <input type="text" name="form-email" placeholder="Email" class="form-username form-control" id="form-email" [(ngModel)]="user.email" required>
     </div>
     <div class="form-group">
       <label class="sr-only" for="form-password">Password</label>
-      <input type="password" name="form-password" placeholder="Contraseña" class="form-password form-control" id="form-password" [(ngModel)]="user.password">
+      <input type="password" name="form-password" placeholder="Contraseña" class="form-password form-control" id="form-password" [(ngModel)]="user.password" required>
     </div>
     <br>
     <div class="form-group">
