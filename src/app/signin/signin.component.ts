@@ -34,10 +34,7 @@ export class SigninComponent implements OnInit {
     this.userService.checkUsername(this.user.username).pipe(take(1)).subscribe((dato:any) => {
       if (dato) {
         alert("This username already exist");
-        console.log("no se puede añadir");
-
       }else{
-        console.log("se puede añadir");
         this.auth.signUp(this.user.name,this.user.surname,this.user.username, this.user.email, this.user.password);
       }
     })
