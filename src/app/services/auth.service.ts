@@ -97,8 +97,7 @@ export class AuthService {
               //return the user data
               this.currentUser = x.data();
               this.setUserStatus(this.currentUser);
-              this.router.navigate(["/"]);
-
+              this.router.navigate(["home"]);
             })
           }).catch(err => {
           console.log(err);
