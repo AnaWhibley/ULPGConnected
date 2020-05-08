@@ -16,25 +16,29 @@ export class PostListComponent implements OnInit {
         title: "Se cancelan las clases",
         description: "Las clases han sido suspendidas debido al COVID19",
         date: new Date(),
-        user: "Pedro Sánchez"
+        user: "Pedro Sánchez",
+        username: "peterSa"
       },
       {
-        title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
+        title: "No se podrá salir a la calle",
+        description: "No se podrá salir a la calle hasta nuevo aviso",
         date: new Date(),
-        user: "Pedro Sánchez"
+        user: "Pedro Sánchez",
+        username: "peterSa"
       },
       {
-        title: "Se cancelan las clases",
+        title: "Se están desarrollando vacunas",
         description: "Las clases han sido suspendidas debido al COVID19",
         date: new Date(),
-        user: "Pedro Sánchez"
+        user: "Pedro Sánchez",
+        username: "peterSa"
       },
       {
-        title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
+        title: "Amin ponte a trabajar",
+        description: "Amin no trabaja, deberíamos echarlo del grupo",
         date: new Date(),
-        user: "Pedro Sánchez"
+        user: "Grupo 11",
+        username: "11group"
       }
     ]
   }

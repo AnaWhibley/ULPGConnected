@@ -11,6 +11,7 @@ export class PostItemComponent implements OnInit {
   @Input() description: String;
   @Input() date: String;
   @Input() user: String;
+  @Input() username: String;
   constructor( private router: Router) { }
 
   ngOnInit() {
