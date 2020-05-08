@@ -1,40 +1,96 @@
-<h2> Datos de {{ me.name }}</h2>
-<div class="m-5">
-    <table class="table table-hover table-light">
-        <thead>
-            <tr>
-                <th style="text-align: left;">USUARIO</th>
-                <th style="text-align: left;"> {{me.name}} </th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <th style="text-align: left; width: 20%;">ROL</th>
-                <td style="text-align: left; width: 80%;">
-                    <span class="badge badge-pill badge-info" *ngIf="me.role == 2"> Usuario </span>
-                    <span class="badge badge-pill badge-success" *ngIf="me.role == 1"> Administrador </span>
-                </td>
-            </tr>
-            <tr>
-                <th style="text-align: left;">Nombre</th>
-                <td style="text-align: left;">{{me.username}}</td>
-            </tr>
-            <tr>
-                <th style="text-align: left;">Apellidos</th>
-                <td style="text-align: left;">{{me.surname}}</td>
-            </tr>
-            <tr>
-                <th style="text-align: left;">Correo</th>
-                <td style="text-align: left;">{{me.email}}</td>
-            </tr>
-            <tr>
-                <th></th>
-                <td style="text-align: left;">
-                    <button type="button" class="btn btn-warning" (click)="modMisDatos()">
+<div *ngIf="!change" class="m-5">
+    <h2> Datos de {{ me.username }}</h2>
+    <div class="m-5">
+        <table class="table table-hover table-light">
+            <thead>
+                <tr>
+                    <th style="text-align: left;">USUARIO</th>
+                    <th style="text-align: left;"> {{me.username}} </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th style="text-align: left; width: 20%;">ROL</th>
+                    <td style="text-align: left; width: 80%;">
+                        <span class="badge badge-pill badge-info" *ngIf="me.role == 2"> Usuario </span>
+                        <span class="badge badge-pill badge-success" *ngIf="me.role == 1"> Administrador </span>
+                    </td>
+                </tr>
+                <tr>
+                    <th style="text-align: left;">Nombre</th>
+                    <td style="text-align: left;">{{me.name}}</td>
+                </tr>
+                <tr>
+                    <th style="text-align: left;">Apellidos</th>
+                    <td style="text-align: left;">{{me.surname}}</td>
+                </tr>
+                <tr>
+                    <th style="text-align: left;">Correo</th>
+                    <td style="text-align: left;">{{me.email}}</td>
+                </tr>
+                <tr>
+                    <th></th>
+                    <td style="text-align: left;">
+                        <button type="button" class="btn btn-warning" (click)="modMisDatos()">
                         <i class="icono izq fa fa-cog"></i> Modificar datos
                     </button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+
+<div *ngIf="change" class="m-5">
+    <div class="contenedor">
+        <form>
+            <div class="form-group username">
+                <label for="username">Usuario</label>
+                <input required [(ngModel)]="me.username" name="username" #username="ngModel" (change)="updateUserDetails(username)" type="text" class="form-control" id="username">
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="name">Nombre</label>
+                        <input required [(ngModel)]="me.name" name="name" #name="ngModel" (change)="updateUserDetails(name)" type="text" class="form-control" id="name">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="surname">Apellidos</label>
+                        <input requires [(ngModel)]="me.surname" name="surname" #surname="ngModel" (change)="updateUserDetails(surname)" type="text" class="form-control" id="surname">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input required [(ngModel)]="me.email" name="email" #email="ngModel" (change)="updateUserDetails(email)" type="text" class="form-control" id="email">
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input required [(ngModel)]="me.password" name="password" #password="ngModel" (change)="updateUserDetails(password)" type="password" class="form-control" id="password">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row ">
+                <div class="buttons">
+                    <button type="button" class="btn btn-danger" (click)="modMisDatos()">
+                        <i class="icono izq fa fa-cog"></i> Cancelar
+                    </button>
+                    <button type="button" class="btn btn-primary" (click)="updateUser()">
+                        <i class="icono izq fa fa-cog"></i> Guardar
+                    </button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+
 </div>
