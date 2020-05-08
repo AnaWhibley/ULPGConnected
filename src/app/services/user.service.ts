@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {from, Observable} from "rxjs";
-import {map, tap} from 'rxjs/operators';
+import {map, take, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -80,7 +80,6 @@ export class UserService {
   public checkUsername(username): Observable<any>{
     return from(this.users.pipe(
       map(c => c.find(dato => dato.username == username)),
-      tap(dato => console.log("HEEEEEY", dato))
     ));
   }
 
