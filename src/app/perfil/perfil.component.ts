@@ -16,6 +16,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
   myId: string;
   change = false;
+  myPosts = false;
 
   constructor( private authService: AuthService,
     private userService: UserService) { }
@@ -29,13 +30,18 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.subs2 = this.userService.getUserByName(this.me.name)
       .subscribe( data => {
         this.myId = data.propertyId;
-      });
+    });
+
+    // Llamar al método para subscribirnos a nuestra lista de posts
+
   }
 
   // Quitando subscripcion
   ngOnDestroy(){
     this.subs.unsubscribe();
     this.subs2.unsubscribe();
+
+    // Quitando subscripcion de nuestra lista de posts
   }
 
   modMisDatos(){
@@ -55,6 +61,11 @@ export class PerfilComponent implements OnInit, OnDestroy {
     }
     this.userService.updateUser(this.myId, this.me);
     this.modMisDatos();
+  }
+
+  misPosts(){
+    this.myPosts = !this.myPosts;
+
   }
 
 }
