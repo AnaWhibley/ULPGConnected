@@ -8,6 +8,7 @@ import {UserDetailsComponent} from './user-details/user-details.component';
 import {UserCreateComponent} from './user-create/user-create.component';
 import {PostListComponent} from "./post-list/post-list.component";
 import {PostDetailsComponent} from "./post-details/post-details.component";
+import {PostCreateComponent} from "./post-create/post-create.component";
 
 
 const ROUTES: Routes = [
@@ -19,6 +20,7 @@ const ROUTES: Routes = [
   { path: 'detalles/:id', component: UserDetailsComponent },
   { path: 'crear', component: UserCreateComponent },
   { path: 'details', component: PostDetailsComponent},
+  { path: 'postCreate', component: PostCreateComponent},
   { path: '**', pathMatch: 'full', redirectTo: ''}
 ];
 

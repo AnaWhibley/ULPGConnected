@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {PostItemComponent} from "../post-item/post-item.component";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -11,7 +12,7 @@ export class PostListComponent implements OnInit {
   private date: String;
   private aux: Date;
   private mList;
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.aux = new Date();
@@ -50,6 +51,8 @@ export class PostListComponent implements OnInit {
       }
     ]
   }
-
+  createPost(){
+    this.router.navigate(['/postCreate']);
+  }
 
 }
