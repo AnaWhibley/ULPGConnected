@@ -32,7 +32,7 @@ export class PostCreateComponent implements OnInit {
     this.mList = [
       "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
     ];
-    this.date = String(this.currentDate.getDay() + " " + this.mList[this.currentDate.getMonth()]);
+    this.date = String(this.currentDate.getDate() + " " + this.mList[this.currentDate.getMonth()]);
     this.post = {
       title: "",
       description: "",
