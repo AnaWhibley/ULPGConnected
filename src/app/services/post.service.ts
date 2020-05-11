@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {from, Observable} from "rxjs";
@@ -9,26 +9,29 @@ import {map} from "rxjs/operators";
 })
 export class PostService {
 
-  constructor(private db: AngularFirestore, private router: Router) { }
-
-  public get posts(): Observable<any> {
-    return this.db.collection('posts').valueChanges({ idField: 'propertyId' });
+  constructor(private db: AngularFirestore, private router: Router) {
   }
 
+  public get posts(): Observable<any> {
+    return this.db.collection('posts').valueChanges({idField: 'propertyId'});
+  }
+  
   addPost(newPost) {
     this.db.collection("posts").add({
-      id: Math.random().toString(36).substr(2,10),
+      id: Math.random().toString(36).substr(2, 10),
       title: newPost.title,
       description: newPost.description,
       date: newPost.date,
-      userId: newPost.userId
+      userId: newPost.userId,
+      userName: newPost.userName,
+      fullName: newPost.fullName,
+      email: newPost.email
     }).then(() => {
       console.log('done');
       this.router.navigate([""])
-    })
-      .catch(function(error) {
-        console.error('Error writing document: ', error);
-      });
+    }).catch(function (error) {
+      console.error('Error writing document: ', error);
+    });
   }
 
   getPostByPropertyId(propertyId) {
@@ -36,7 +39,7 @@ export class PostService {
       .doc(propertyId).valueChanges();
   }
 
-  getPostByUserId(userId): Observable<any>{
+  getPostByUserId(userId): Observable<any> {
     return from(this.posts.pipe(
       map(c => c.find(dato => dato.userId == userId)),
     ));
@@ -49,7 +52,7 @@ export class PostService {
       .then(function () {
         console.log("Document successfully deleted!");
       }).catch(
-      function(error) {
+      function (error) {
         console.error("Error removing document: ", error);
       });
   }
