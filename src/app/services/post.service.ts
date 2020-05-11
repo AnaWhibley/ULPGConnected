@@ -24,7 +24,7 @@ export class PostService {
       userId: newPost.userId
     }).then(() => {
       console.log('done');
-      this.router.navigate(["/home"])
+      this.router.navigate([""])
     })
       .catch(function(error) {
         console.error('Error writing document: ', error);
