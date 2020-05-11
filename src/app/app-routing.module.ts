@@ -13,7 +13,7 @@ import {PostCreateComponent} from "./post-create/post-create.component";
 
 const ROUTES: Routes = [
   //{ path: 'inicio', component: IndexComponent },
-  { path: '', component: HomeComponent },
+  //{ path: '', component: HomeComponent },
   { path: 'home', component: PostListComponent },
   { path: 'me', component: PerfilComponent },
   { path: 'usuarios', component: UsuariosComponent },

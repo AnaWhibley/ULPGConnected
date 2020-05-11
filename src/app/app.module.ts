@@ -25,6 +25,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
 import { PostCreateComponent } from './post-create/post-create.component';
+import {AuthService} from "./services/auth.service";
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { PostCreateComponent } from './post-create/post-create.component';
     AngularFirestoreModule,
     FormsModule,
   ],
-  providers: [AngularFireStorage],
+  providers: [AngularFireStorage, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

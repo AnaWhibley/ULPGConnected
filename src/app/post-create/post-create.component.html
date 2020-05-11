@@ -1,12 +1,22 @@
-<div>
+<div class="contenedor">
   <div class="title">
     <div class="row">
       <div class="col-sm">
         <h1>Lista de publicaciones</h1>
       </div>
       <div class="col-sm">
-        <button class="btn btn-primary">Publicar</button>
+        <button class="btn btn-primary" (click)="createPost()">Publicar</button>
       </div>
     </div>
+    <form>
+      <div class="form-group">
+        <label for="title">Título</label>
+        <input required type="text" ngModel name="title" #title="ngModel" (change)="updatePost(title)" class="form-control" id="title">
+      </div>
+      <div class="form-group">
+        <label for="description">Descripción</label>
+        <input required type="text" ngModel name="description" #description="ngModel" (change)="updatePost(description)" class="form-control" id="description">
+      </div>
+    </form>
   </div>
 </div>

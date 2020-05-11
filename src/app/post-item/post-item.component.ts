@@ -1,32 +1,31 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
+import {UserService} from "../services/user.service";
+import {AuthService} from "../services/auth.service";
+
 @Component({
   selector: 'app-post-item',
   templateUrl: './post-item.component.html',
   styleUrls: ['./post-item.component.scss']
 })
 export class PostItemComponent implements OnInit {
-  private post;
-  @Input() title: String;
-  @Input() description: String;
-  @Input() date: String;
-  @Input() user: String;
-  @Input() username: String;
-
-  constructor( private router: Router) { }
+  private user: any;
+  private mList: any;
+  private date: String;
+  @Input() post;
+  constructor( private router: Router, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.post = {
-      title: this.title,
-      description: this.description,
-      date: this.date,
-      user: this.user,
-      username: this.username
-    };
+    this.user = this.authService.getCurrentUser();
+    /*
+    this.mList = [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    this.date = String(this.post.date.getDay() + " " + this.mList[this.post.date.getMonth()]);
+     */
   }
-
   goToDetails(){
-    this.router.navigate(['/details']);
+    this.router.navigate(['/details', this.post.id]);
   }
 
 }

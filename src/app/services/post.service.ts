@@ -20,11 +20,11 @@ export class PostService {
       id: Math.random().toString(36).substr(2,10),
       title: newPost.title,
       description: newPost.description,
-      date: Date(),
+      date: newPost.date,
       userId: newPost.userId
     }).then(() => {
       console.log('done');
-      this.router.navigate(["/"])
+      this.router.navigate(["/home"])
     })
       .catch(function(error) {
         console.error('Error writing document: ', error);

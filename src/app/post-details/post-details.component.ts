@@ -11,13 +11,7 @@ export class PostDetailsComponent implements OnInit {
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.post = {
-      title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
-      date: new Date,
-      user: "Pedro Sánchez",
-      username: "peterSa"
-    }
+
   }
 
 }
