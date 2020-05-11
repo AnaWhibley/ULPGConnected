@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {PostItemComponent} from "../post-item/post-item.component";
+import {PostService} from "../services/post.service";
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -7,37 +9,16 @@ import {PostItemComponent} from "../post-item/post-item.component";
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  private posts;
-  constructor() { }
+  private posts: any;
+  constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit() {
-    this.posts = [
-      {
-        title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
-        date: new Date(),
-        user: "Pedro Sánchez"
-      },
-      {
-        title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
-        date: new Date(),
-        user: "Pedro Sánchez"
-      },
-      {
-        title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
-        date: new Date(),
-        user: "Pedro Sánchez"
-      },
-      {
-        title: "Se cancelan las clases",
-        description: "Las clases han sido suspendidas debido al COVID19",
-        date: new Date(),
-        user: "Pedro Sánchez"
-      }
-    ]
+    this.postService.posts.subscribe((posts: any) => {
+      this.posts = posts;
+    });
   }
-
+  createPost(){
+    this.router.navigate(['/postCreate']);
+  }
 
 }

@@ -2,16 +2,17 @@
   <div class="card-container">
     <div class="card">
       <div class="card-header">
-        {{title}}
+        {{post.title}}
       </div>
       <div class="card-body">
         <p class="card-text">
-          {{description}}
+          {{post.description}}
         </p>
       </div>
       <div class="card-footer text-muted ">
-        <span class="user">{{date}}</span>
-        <span>{{user}}</span>
+        <span class="col-sm user">{{user.username}}</span>
+        <span class="col-sm user">{{user.name}}</span>
+
       </div>
     </div>
   </div>

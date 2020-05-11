@@ -24,6 +24,8 @@ import { NameOrderPipe } from './pipes/name-order.pipe';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostItemComponent } from './post-item/post-item.component';
 import { PostDetailsComponent } from './post-details/post-details.component';
+import { PostCreateComponent } from './post-create/post-create.component';
+import {AuthService} from "./services/auth.service";
 
 
 @NgModule({
@@ -44,7 +46,8 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     NameOrderPipe,
     PostListComponent,
     PostItemComponent,
-    PostDetailsComponent
+    PostDetailsComponent,
+    PostCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +57,7 @@ import { PostDetailsComponent } from './post-details/post-details.component';
     AngularFirestoreModule,
     FormsModule,
   ],
-  providers: [AngularFireStorage],
+  providers: [AngularFireStorage, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

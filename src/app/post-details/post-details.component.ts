@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router,ActivatedRoute } from '@angular/router'
 
 @Component({
   selector: 'app-post-details',
@@ -6,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-details.component.scss']
 })
 export class PostDetailsComponent implements OnInit {
-
-  constructor() { }
+  private post;
+  constructor(private _router: Router, private _activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
   }
 
 }
