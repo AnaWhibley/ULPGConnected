@@ -10,12 +10,17 @@ import {Router} from '@angular/router';
 })
 export class PostCreateComponent implements OnInit {
   private currentUser: any;
-
+  private mList: any;
+  private currentDate: any;
+  private date: any;
   private post: {
     title: String,
     description: String,
-    date: Date;
-    userId: String
+    date: String;
+    userId: String,
+    userName: String,
+    fullName: String,
+    email: String
   }
 
   constructor(private auth: AuthService, private PostService: PostService,
@@ -23,12 +28,21 @@ export class PostCreateComponent implements OnInit {
 
   ngOnInit() {
     this.currentUser = this.auth.getCurrentUser();
+    this.currentDate = new Date();
+    this.mList = [
+      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
+    ];
+    this.date = String(this.currentDate.getDay() + " " + this.mList[this.currentDate.getMonth()]);
     this.post = {
       title: "",
       description: "",
-      date: new Date(),
-      userId: this.currentUser.id
+      date: this.date,
+      userId: this.currentUser.id,
+      userName: this.currentUser.username,
+      fullName: this.currentUser.name + ' ' + this.currentUser.surname,
+      email: this.currentUser.email
     }
+
   }
 
   updatePost(fieldValue){
@@ -37,7 +51,7 @@ export class PostCreateComponent implements OnInit {
   }
 
   createPost(){
-    this.PostService.addPost(this.post);
+    this.PostService.addPost({...this.post});
   }
 
 }
