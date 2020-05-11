@@ -22,10 +22,6 @@ export class UsuariosComponent implements OnInit {
   ini = 0;
   fin = 5;
 
-
-
-
-
   constructor(private userService: UserService,
               private router: Router) {
 
@@ -45,6 +41,7 @@ export class UsuariosComponent implements OnInit {
   ngOnInit() {
     this.usersPage = []
     this.users = [];
+    
     this.userService.users.subscribe( (data: any) => {
       // No incluyo los usuarios con state == false
       this.users = data.filter(user => user.state === true);
@@ -60,16 +57,7 @@ export class UsuariosComponent implements OnInit {
         this.ini = this.fin;
         this.fin = this.users.length;
       }
-
-/*       console.log('====================');
-      console.log('DEBERIA APARECER 1 VEZ', this.ini);
-      console.log('fin', this.fin);
-      console.log('===================='); */
-
-
     });
-
-
   }
 
   buscar(termino: string){

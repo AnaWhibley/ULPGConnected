@@ -3,6 +3,7 @@ import {AuthService} from "../services/auth.service";
 import {UserService} from "../services/user.service";
 import {Router} from "@angular/router";
 import {BehaviorSubject} from "rxjs";
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-signin',
@@ -30,15 +31,12 @@ export class SigninComponent implements OnInit {
   }
 
   signUp() {
-    this.userService.checkUsername(this.user.username).subscribe((dato:any) => {
-      if (typeof dato !== 'undefined') {
-        this.auth.signUp(this.user.name,this.user.surname,this.user.username,
-          this.user.email, this.user.password);
-      } else {
-        alert("El usuario ya está existe, prueba con otro diferente");
+    this.userService.checkUsername(this.user.username).pipe(take(1)).subscribe((dato:any) => {
+      if (dato) {
+        alert("This username already exist");
+      }else{
+        this.auth.signUp(this.user.name,this.user.surname,this.user.username, this.user.email, this.user.password);
       }
     })
-
   }
-
 }

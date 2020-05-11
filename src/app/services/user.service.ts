@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {from, Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import {map, take, tap} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

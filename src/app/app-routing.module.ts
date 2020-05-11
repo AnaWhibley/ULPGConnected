@@ -6,19 +6,21 @@ import {PerfilComponent} from './perfil/perfil.component';
 import {UsuariosComponent} from './usuarios/usuarios.component';
 import {UserDetailsComponent} from './user-details/user-details.component';
 import {UserCreateComponent} from './user-create/user-create.component';
-import {PostItemComponent} from "./post-item/post-item.component";
 import {PostListComponent} from "./post-list/post-list.component";
+import {PostDetailsComponent} from "./post-details/post-details.component";
+import {PostCreateComponent} from "./post-create/post-create.component";
 
 
 const ROUTES: Routes = [
-  // { path: 'inicio', component: IndexComponent },
-  { path: '', component: HomeComponent },
-  { path: 'home', component: HomeComponent },
+  //{ path: 'inicio', component: IndexComponent },
+  { path: '', component: PostListComponent },
+  { path: 'home', component: PostListComponent },
   { path: 'me', component: PerfilComponent },
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'detalles/:id', component: UserDetailsComponent },
   { path: 'crear', component: UserCreateComponent },
-  { path: 'posts', component: PostListComponent},
+  { path: 'details', component: PostDetailsComponent},
+  { path: 'postCreate', component: PostCreateComponent},
   { path: '**', pathMatch: 'full', redirectTo: ''}
 ];
 
