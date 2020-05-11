@@ -10,8 +10,6 @@ import {AuthService} from "../services/auth.service";
 })
 export class PostItemComponent implements OnInit {
   private user: any;
-  private mList: any;
-  private date: String;
   @Input() post;
   constructor( private router: Router, private userService: UserService, private authService: AuthService) { }
 
@@ -24,8 +22,8 @@ export class PostItemComponent implements OnInit {
     this.date = String(this.post.date.getDay() + " " + this.mList[this.post.date.getMonth()]);
      */
   }
-  goToDetails(){
-    this.router.navigate(['/details', this.post.id]);
+  goToDetails(id){
+    id ? this.router.navigate(['/details', id]) : {};
   }
 
 }
