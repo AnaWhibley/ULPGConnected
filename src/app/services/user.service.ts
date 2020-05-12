@@ -44,6 +44,12 @@ export class UserService {
     ));
   }
 
+  getUserByEmail(email): Observable<any>{
+    return from(this.users.pipe(
+      map(c => c.find(dato => dato.email == email)),
+    ));
+  }
+
   updateUser(propertyId, newUser) {
     this.db.collection("users")
       .doc(propertyId)
