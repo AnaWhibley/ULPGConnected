@@ -11,20 +11,18 @@ export class PostDetailsComponent implements OnInit {
   private post;
   private postId;
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute,
-              private postService: PostService) { }
+              private postService: PostService){ }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
       this.postId = String(params['id']);
-      this.getPost(this.postId);
     });
-  }
-
-  getPost(postId){
-    let id = String(postId);
-    this.postService.getPostByUserId(id).subscribe((post) =>{
+    this.postService.getPostByUserId(this.postId).subscribe((post) => {
       this.post = post;
     });
   }
 
+  deletePost(){
+
+  }
 }

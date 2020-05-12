@@ -14,16 +14,12 @@ export class PostItemComponent implements OnInit {
   constructor( private router: Router, private userService: UserService, private authService: AuthService) { }
 
   ngOnInit() {
-    this.user = this.authService.getCurrentUser();
-    /*
-    this.mList = [
-      "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
-    ];
-    this.date = String(this.post.date.getDay() + " " + this.mList[this.post.date.getMonth()]);
-     */
+   this.userService.getUserByEmail(this.post.email).subscribe((user)=>{
+     this.user = {...user};
+   });
   }
   goToDetails(id){
-    id ? this.router.navigate(['/details', id]) : {};
+    id ? this.router.navigate(['/post-details', id]) : "";
   }
 
 }

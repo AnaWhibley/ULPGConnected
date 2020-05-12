@@ -19,7 +19,7 @@ const ROUTES: Routes = [
   { path: 'usuarios', component: UsuariosComponent },
   { path: 'detalles/:id', component: UserDetailsComponent },
   { path: 'crear', component: UserCreateComponent },
-  { path: 'details', component: PostDetailsComponent},
+  { path: 'post-details/:id', component: PostDetailsComponent},
   { path: 'postCreate', component: PostCreateComponent},
   { path: '**', pathMatch: 'full', redirectTo: ''}
 ];
