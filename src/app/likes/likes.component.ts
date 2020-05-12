@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import * as $ from 'jquery';
 
 @Component({
   selector: 'app-likes',
@@ -14,10 +15,11 @@ export class LikesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-  }
-
-  clickEvent() {
-    this.clicked = !this.clicked;
+    $(function() {
+      $(".heart").on("click", function() {
+        $(this).toggleClass("is-active");
+      });
+    });
   }
 
 }
