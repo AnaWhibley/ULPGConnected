@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-perfil',
@@ -13,13 +14,17 @@ export class PerfilComponent implements OnInit, OnDestroy {
   me: any;
   subs: Subscription;
   subs2: Subscription;
+  subs3: Subscription;
 
+  listPosts : any;
   myId: string;
   change = false;
   myPosts = false;
 
-  constructor( private authService: AuthService,
-    private userService: UserService) { }
+
+  constructor(private authService: AuthService,
+              private userService: UserService, 
+              private postService: PostService) { }
 
 
   ngOnInit() {
@@ -33,13 +38,18 @@ export class PerfilComponent implements OnInit, OnDestroy {
     });
 
     // Llamar al método para subscribirnos a nuestra lista de posts
-
+    // Metodo incompleto
+    this.subs3 = this.postService.getPostByUserId(this.me.id)
+    .subscribe( data => {
+      this.listPosts = data;
+    });
   }
 
   // Quitando subscripcion
   ngOnDestroy(){
     this.subs.unsubscribe();
     this.subs2.unsubscribe();
+    this.subs3.unsubscribe();
 
     // Quitando subscripcion de nuestra lista de posts
   }
@@ -65,7 +75,7 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
   misPosts(){
     this.myPosts = !this.myPosts;
-
+    console.log("Supuesta lsita", this.listPosts);
   }
 
 }
