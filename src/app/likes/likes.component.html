@@ -1,1 +1,4 @@
-<span class="heart"></span>
+<span class="heart"
+      (click)="likeDislike()"
+      [ngClass]="{'selected': (like),'readonly': (readonly)}"
+></span>

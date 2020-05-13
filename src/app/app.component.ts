@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import {Router} from '@angular/router';
+import {LikeClickedEvent} from './likes/likes.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +11,7 @@ import {Router} from '@angular/router';
 export class AppComponent implements OnInit {
   title = 'ulpgconnected';
   logued: boolean = false;
+  values : Map<string, boolean> = new Map();
 
   constructor (private authService: AuthService, private router: Router){}
 
@@ -21,4 +23,8 @@ export class AppComponent implements OnInit {
               this.router.navigate(['']);
             });
    }
+
+  handleEvent(event: LikeClickedEvent){
+    this.values.set(event.postId, event.like);
+  }
 }

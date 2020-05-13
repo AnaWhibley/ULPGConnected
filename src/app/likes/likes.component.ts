@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import * as $ from 'jquery';
 
 @Component({
@@ -9,6 +9,9 @@ import * as $ from 'jquery';
 export class LikesComponent implements OnInit {
 
   @Input() readonly: boolean = false;
+  @Input() like: boolean = false;
+  @Input() postId: string;
+  @Output() public childEvent = new EventEmitter();
 
   constructor() { }
 
@@ -20,4 +23,12 @@ export class LikesComponent implements OnInit {
     });
   }
 
+  likeDislike() {
+    if (this.readonly) return;
+  }
+}
+
+export interface LikeClickedEvent {
+  postId: string;
+  like: boolean;
 }
