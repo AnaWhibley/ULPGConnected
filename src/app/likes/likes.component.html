@@ -1,4 +1,4 @@
 <div class="heart"
-      (click)="likeDislike()"
-      [ngClass]="{'selected': (like),'readonly': (readonly)}"
+      (click)="like = !like; likeDislike(like)"
+      [ngClass]="{'readonly': (readonly)}"
 ></div>

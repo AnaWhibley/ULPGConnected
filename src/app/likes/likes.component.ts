@@ -9,7 +9,7 @@ import * as $ from 'jquery';
 export class LikesComponent implements OnInit {
 
   @Input() readonly: boolean = false;
-  @Input() like: boolean = false;
+  @Input() like: boolean;
   @Input() postId: string;
   @Output() public childEvent = new EventEmitter();
 
@@ -23,8 +23,13 @@ export class LikesComponent implements OnInit {
     });
   }
 
-  likeDislike() {
+  likeDislike(like) {
     if (this.readonly) return;
+    this.like = like;
+    this.childEvent.emit({
+      postId: "",
+      like: this.like
+    });
   }
 }
 
