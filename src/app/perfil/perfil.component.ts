@@ -16,10 +16,10 @@ export class PerfilComponent implements OnInit, OnDestroy {
   subs2: Subscription;
   subs3: Subscription;
 
-  listPosts : any;
+  myPosts = [];
   myId: string;
   change = false;
-  myPosts = false;
+  listPosts = false;
 
 
   constructor(private authService: AuthService,
@@ -38,10 +38,9 @@ export class PerfilComponent implements OnInit, OnDestroy {
     });
 
     // Llamar al método para subscribirnos a nuestra lista de posts
-    // Metodo incompleto
-    this.subs3 = this.postService.getPostByUserId(this.me.id)
-    .subscribe( data => {
-      this.listPosts = data;
+
+    this.subs3 = this.postService.posts.subscribe( (data: any) => {
+        this.myPosts = data.filter( post => post.userId === this.me.id);
     });
   }
 
@@ -51,7 +50,6 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.subs2.unsubscribe();
     this.subs3.unsubscribe();
 
-    // Quitando subscripcion de nuestra lista de posts
   }
 
   modMisDatos(){
@@ -74,8 +72,15 @@ export class PerfilComponent implements OnInit, OnDestroy {
   }
 
   misPosts(){
-    this.myPosts = !this.myPosts;
-    console.log("Supuesta lsita", this.listPosts);
+    this.listPosts = !this.listPosts;
+    console.log("Supuesta lsita", this.myPosts);
   }
+
+  borrarPost(id: string){
+    console.log("PropertyID: ", id);
+
+  }
+
+ 
 
 }
