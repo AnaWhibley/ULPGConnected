@@ -8,9 +8,7 @@ import * as $ from 'jquery';
 })
 export class LikesComponent implements OnInit {
 
-
   @Input() readonly: boolean = false;
-  private clicked: boolean = false;
 
   constructor() { }
 
