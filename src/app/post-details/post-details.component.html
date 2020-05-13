@@ -4,7 +4,7 @@
       <h1>Detalles del tweet</h1>
     </div>
     <div class="col-sm">
-      <button class="btn btn-danger" (click)="deletePost()">Eliminar publicación</button>
+      <button class="btn btn-danger" *ngIf="currentUser?.id === post?.userId || currentUser?.role === 1" (click)="deletePost()">Eliminar publicación</button>
     </div>
   </div>
   <div>
