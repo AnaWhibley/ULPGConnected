@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router,ActivatedRoute } from '@angular/router';
 import {PostService} from "../services/post.service";
 import {AuthService} from "../services/auth.service";
+import {LikeService} from "../services/like.service";
 
 @Component({
   selector: 'app-post-details',
@@ -9,20 +10,23 @@ import {AuthService} from "../services/auth.service";
   styleUrls: ['./post-details.component.scss']
 })
 export class PostDetailsComponent implements OnInit {
-  private post;
-  private postId;
-  private currentUser;
+  private post: any;
+  private postId: any;
+  private currentUser: any;
+  private likes: any;
   constructor(private _router: Router, private _activatedRoute: ActivatedRoute,
-              private postService: PostService, private authService: AuthService){ }
+              private postService: PostService, private authService: AuthService,
+              private likeService: LikeService){ }
 
   ngOnInit() {
     this._activatedRoute.params.subscribe(params => {
       this.postId = String(params['id']);
     });
-    this.postService.getPostByUserId(this.postId).subscribe((post) => {
+    this.postId ? this.postService.getPostByUserId(this.postId).subscribe((post) => {
       this.post = post;
-    });
+    }) : this.post = {};
     this.currentUser = this.authService.getCurrentUser();
+    this.post && this.post.hasOwnProperty('id') ? this.likes = this.likeService.getLikesByPostId(this.post.id) : null;
   }
 
   deletePost(){
