@@ -18,7 +18,10 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
   myPosts = [];
   myId: string;
+
+  misDatos = true;
   change = false;
+  listLikes = false;
   listPosts = false;
 
 
@@ -56,6 +59,16 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.change = !this.change;
   }
 
+  misPosts(){
+    this.misDatos = !this.misDatos;
+    this.listPosts = !this.listPosts;
+  }
+
+  misLikes(){
+    this.misDatos = !this.misDatos;
+    this.listLikes = !this.listLikes;
+  }
+
   updateUserDetails(fieldValue) {
     fieldValue && fieldValue.name && fieldValue.name === 'username' ? this.me.username = fieldValue.viewModel : '';
     fieldValue && fieldValue.name && fieldValue.name === 'name' ? this.me.name = fieldValue.viewModel : '';
@@ -71,10 +84,9 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.modMisDatos();
   }
 
-  misPosts(){
-    this.listPosts = !this.listPosts;
-    console.log("Supuesta lsita", this.myPosts);
-  }
+ 
+
+
 
   borrarPost(id: string){
     console.log("PropertyID: ", id);
