@@ -1,12 +1,15 @@
-<div *ngIf="!listPosts" class="m-5">
+<div *ngIf="misDatos" class="m-5">
     <div class="row">
         <div class="col">
             <h2> Datos de {{ me.username }}</h2>
 
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary" (click)="misPosts()">
-                <i class="icono izq fa fa-list"></i> Ver mis posts
+            <button type="button" class="btn btn-success m-1" (click)="misPosts()">
+                <i class="icono izq fa fa-list"></i> Mis posts
+            </button>
+            <button type="button" class="btn btn-info m-1" (click)="misLikes()">
+                <i class="icono izq fa fa-heart"></i> Mis Me gusta
             </button>
         </div>
 
@@ -94,20 +97,19 @@
                 <div class="row ">
                     <div class="buttons">
                         <button type="button" class="btn btn-danger" (click)="modMisDatos()">
-                            <i class="icono izq fa fa-cog"></i> Cancelar
+                            Cancelar
                         </button>
                         <button type="button" class="btn btn-primary" (click)="updateUser()">
-                            <i class="icono izq fa fa-cog"></i> Guardar
+                            <i class="icono izq fa fa-save"></i> Guardar
                         </button>
                     </div>
                 </div>
 
             </form>
         </div>
-
-
     </div>
 </div>
+
 <div *ngIf="listPosts" class="m-5">
     <div class="row">
         <div class="col">
@@ -121,57 +123,27 @@
     </div>
     <div class="m-5">
         <div *ngFor="let post of myPosts" class="m-3">
-            <div class="card-container">
-                <div class="card">
-                    <div class="card-header">
-                        {{post.title}}
-                    </div>
-                    <div class="card-body">
-                        <p class="card-text">
-                            {{post.description}}
-                        </p>
-                    </div>
-                    <div class="card-footer text-muted ">
-                        <span class="col-sm user">{{post.userName}}</span>
-                        <span class="col-sm user">{{post.date}}</span>
-                        <button type="button" class="btn btn-danger" style="float: right;" (click)="borrarPost(post.propertyId)">
-                            <i class="icono izq fa fa-trash"></i> Borrar
-                        </button>
-                    </div>
-                </div>
-            </div>
+            <app-post-item [post]="post">
+            </app-post-item>
         </div>
     </div>
 </div>
 
-<!-- <button class="btn btn-success" data-toggle="modal" data-tarjet="#deleteModal">
-Abrir
-</button>
-
-PRUEBA MODAL DIALOG
-
-<div class="modal" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="tituloModal" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 id="tituloModal"> Titulaso </h5>
-                <button class="close" data-dismiss="modal" aria-label="Cerrar">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="alert alert-success">
-                    <h6><strong>Yeka</strong></h6>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-warning" type="button" data-dismiss="modal">
-                    cerrar
-                </button>
-                <button class="btn btn-success" type="button">
-                    Aceptar
-                </button>
-            </div>
+<div *ngIf="listLikes" class="m-5">
+    <div class="row">
+        <div class="col">
+            <h2> Me gusta de {{ me.username }}</h2>
+        </div>
+        <div class="col">
+            <button type="button" class="btn btn-primary" (click)="misLikes()" style="text-align: right">
+                <i class="icono izq fa fa-angle-double-left"></i> Volver
+            </button>
         </div>
     </div>
-</div> -->
+    <div class="m-5">
+        <!--         <div *ngFor="let post of myLikedPosts" class="m-3">
+            <app-post-item [post]="post">
+            </app-post-item>
+        </div> -->
+    </div>
+</div>
