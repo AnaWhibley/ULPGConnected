@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Subscription } from 'rxjs';
 import { UserService } from '../services/user.service';
+import { PostService } from '../services/post.service';
 
 @Component({
   selector: 'app-perfil',
@@ -13,13 +14,17 @@ export class PerfilComponent implements OnInit, OnDestroy {
   me: any;
   subs: Subscription;
   subs2: Subscription;
+  subs3: Subscription;
 
+  myPosts = [];
   myId: string;
   change = false;
-  myPosts = false;
+  listPosts = false;
 
-  constructor( private authService: AuthService,
-    private userService: UserService) { }
+
+  constructor(private authService: AuthService,
+              private userService: UserService, 
+              private postService: PostService) { }
 
 
   ngOnInit() {
@@ -34,14 +39,17 @@ export class PerfilComponent implements OnInit, OnDestroy {
 
     // Llamar al método para subscribirnos a nuestra lista de posts
 
+    this.subs3 = this.postService.posts.subscribe( (data: any) => {
+        this.myPosts = data.filter( post => post.userId === this.me.id);
+    });
   }
 
   // Quitando subscripcion
   ngOnDestroy(){
     this.subs.unsubscribe();
     this.subs2.unsubscribe();
+    this.subs3.unsubscribe();
 
-    // Quitando subscripcion de nuestra lista de posts
   }
 
   modMisDatos(){
@@ -64,8 +72,15 @@ export class PerfilComponent implements OnInit, OnDestroy {
   }
 
   misPosts(){
-    this.myPosts = !this.myPosts;
+    this.listPosts = !this.listPosts;
+    console.log("Supuesta lsita", this.myPosts);
+  }
+
+  borrarPost(id: string){
+    console.log("PropertyID: ", id);
 
   }
+
+ 
 
 }
