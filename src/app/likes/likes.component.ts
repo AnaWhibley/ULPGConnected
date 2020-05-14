@@ -11,6 +11,7 @@ export class LikesComponent implements OnInit {
   @Input() readonly: boolean = false;
   @Input() like: boolean;
   @Input() postId: string;
+  @Input() userId: string;
   @Output() public childEvent = new EventEmitter();
 
   constructor() { }
@@ -28,6 +29,7 @@ export class LikesComponent implements OnInit {
     this.like = like;
     this.childEvent.emit({
       postId: "",
+      userId: "",
       like: this.like
     });
   }
@@ -35,5 +37,6 @@ export class LikesComponent implements OnInit {
 
 export interface LikeClickedEvent {
   postId: string;
+  userId: string;
   like: boolean;
 }
