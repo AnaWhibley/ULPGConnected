@@ -15,10 +15,10 @@ export class PostService {
   public get posts(): Observable<any> {
     return this.db.collection('posts').valueChanges({idField: 'propertyId'});
   }
-  
+
   addPost(newPost) {
     this.db.collection("posts").add({
-      id: Math.random().toString(36).substr(2, 10),
+      id: newPost.id,
       title: newPost.title,
       description: newPost.description,
       date: newPost.date,
@@ -26,6 +26,17 @@ export class PostService {
       userName: newPost.userName,
       fullName: newPost.fullName,
       email: newPost.email
+    }).then(() => {
+      console.log('done');
+      this.router.navigate([""])
+    }).catch(function (error) {
+      console.error('Error writing document: ', error);
+    });
+    this.db.collection("likes").add({
+      id: Math.random().toString(36).substr(2, 10),
+      postId: newPost.id,
+      userId: newPost.userId,
+      likes: []
     }).then(() => {
       console.log('done');
       this.router.navigate([""])
