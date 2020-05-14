@@ -14,6 +14,7 @@ export class PostCreateComponent implements OnInit {
   private currentDate: any;
   private date: any;
   private post: {
+    id: String,
     title: String,
     description: String,
     date: String;
@@ -34,6 +35,7 @@ export class PostCreateComponent implements OnInit {
     ];
     this.date = String(this.currentDate.getDate() + " " + this.mList[this.currentDate.getMonth()]);
     this.post = {
+      id: Math.random().toString(36).substr(2, 10),
       title: "",
       description: "",
       date: this.date,
