@@ -1,10 +1,10 @@
-<div (click)="goToDetails(post.userId)">
+<div>
   <div class="card-container">
     <div class="card">
-      <div class="card-header">
+      <div class="card-header" (click)="goToDetails(post.userId)">
         {{post.title}}
       </div>
-      <div class="card-body">
+      <div class="card-body" (click)="goToDetails(post.userId)">
         <p class="card-text">
           {{post.description}}
         </p>
@@ -12,6 +12,7 @@
       <div class="card-footer text-muted ">
         <span class="col-sm user">{{post.userName}}</span>
         <span class="col-sm user">{{post.date}}</span>
+        <app-likes [postId]="post.id" [userId]="post.userId" (childEvent)="handleEvent($event)"></app-likes>
       </div>
     </div>
   </div>

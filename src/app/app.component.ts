@@ -11,7 +11,6 @@ import {LikeClickedEvent} from './likes/likes.component';
 export class AppComponent implements OnInit {
   title = 'ulpgconnected';
   logued: boolean = false;
-  values : Map<string, boolean> = new Map();
 
   constructor (private authService: AuthService, private router: Router){}
 
@@ -24,7 +23,5 @@ export class AppComponent implements OnInit {
             });
    }
 
-  handleEvent(event: LikeClickedEvent){
-    this.values.set(event.postId, event.like);
-  }
+
 }

@@ -28,8 +28,8 @@ export class LikesComponent implements OnInit {
     if (this.readonly) return;
     this.like = like;
     this.childEvent.emit({
-      postId: "",
-      userId: "",
+      postId: this.postId,
+      userId: this.userId,
       like: this.like
     });
   }
