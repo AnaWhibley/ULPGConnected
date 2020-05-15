@@ -33,8 +33,4 @@ export class PostItemComponent implements OnInit {
   goToDetails(id){
     id ? this.router.navigate(['/post-details', id]) : "";
   }
-
-  //usando el método del servicio traer los likes de un post, tiene dentro un array con los id de las personas que le han dado me gusta,
-  // hay que añadir a ese array el user que le dio like o quitarlo
-  // usuario actual y property id
 }

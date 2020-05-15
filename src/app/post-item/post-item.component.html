@@ -13,7 +13,7 @@
             <div class="card-footer text-muted ">
                 <span class="col-sm user">{{post.userName}}</span>
                 <span class="col-sm user">{{post.date}}</span>
-                <app-likes [postId]="post.id" [propertyId]="likes.propertyId" [userId]="loguedUser.id"></app-likes>
+                <app-likes [postId]="post.id" *ngIf="likes" [propertyId]="likes.propertyId" [userId]="loguedUser.id"></app-likes>
             </div>
         </div>
     </div>

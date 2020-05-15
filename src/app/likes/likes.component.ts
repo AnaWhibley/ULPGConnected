@@ -14,28 +14,29 @@ export class LikesComponent implements OnInit {
   @Input() userId: string;
   @Input() postId: string;
 
-  constructor(private likeService: LikeService) {
+  private isLiked : boolean;
+  private showAnimation: boolean;
 
+  constructor(private likeService: LikeService) {
   }
 
   ngOnInit() {
-
+    this.likeService.isSelected(this.postId, this.userId).pipe(take(1)).subscribe((data)=> {
+      this.showAnimation = false;
+      this.isLiked = !!data;
+    });
   }
 
   likeDislike() {
-    $(function() {
-      $(".heart").on("click", function() {
-        $(this).toggleClass("is-active");
-      });
-    });
-
     this.likeService.isSelected(this.postId, this.userId).pipe(take(1)).subscribe((data)=> {
+      this.showAnimation = true;
       if (data) {
+        this.isLiked = false;
         this.likeService.removeLike(this.propertyId, this.userId);
       }else{
+        this.isLiked = true;
         this.likeService.addLike(this.propertyId, this.userId);
       }
     });
-
   }
 }
