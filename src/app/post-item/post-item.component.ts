@@ -14,6 +14,7 @@ export class PostItemComponent implements OnInit {
   private likes: any;
   @Input() post;
   private loguedUser: string;
+  private numberLikes: number = 0;
 
   constructor( private router: Router, private userService: UserService,
                private likeService: LikeService, private authService: AuthService) { }
@@ -24,6 +25,7 @@ export class PostItemComponent implements OnInit {
    });
     this.likeService.getLikesByPostId(this.post.id).subscribe( (data) =>{
       this.likes = data;
+      this.numberLikes = this.likes.likes.length;
     });
     this.authService.userStatusChanges
       .subscribe( userDetails => {

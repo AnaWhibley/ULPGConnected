@@ -10,12 +10,17 @@
                     {{post?.description}}
                 </p>
             </div>
-            <div class="card-footer text-muted align-middle">
-              <div class="row align-middle">
-                <app-likes class="col-4 float-left" [postId]="post.id" *ngIf="likes" [propertyId]="likes.propertyId" [userId]="loguedUser.id"></app-likes>
-                <span class="col-4">{{post.userName}}</span>
-                <span class="col-4">{{post.date}}</span>
-              </div>
+            <div class="card-footer text-muted font-weight-bold">
+              <div class="row">
+                <span class="col-4">@{{post.userName}}</span>
+               <span class="col-4"><i class="fa fa-calendar"></i> {{post.date}}</span>
+                <div class="col-4">
+                  <div class="row right">
+                    <span>{{numberLikes}}</span>
+                    <app-likes class="float-left" [postId]="post.id" *ngIf="likes" [propertyId]="likes.propertyId" [userId]="loguedUser.id"></app-likes>
+                  </div>
+                  </div>
+                </div>
             </div>
         </div>
     </div>
