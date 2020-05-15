@@ -15,11 +15,9 @@ export class LikeService {
     return this.db.collection('likes').valueChanges({idField: 'propertyId'});
   }
 
-  public getLikesByPostId(postId) {
+  public getLikesByPostId(postId): Observable<any> {
     return from(this.likes.pipe(
       map(c => c.find(dato => dato.postId == postId)),
     ));
   }
-
-
 }
