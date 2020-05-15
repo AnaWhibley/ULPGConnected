@@ -1,0 +1,13 @@
+<div class="m-5">
+    <div class="row">
+        <div class="col">
+            <h2> Posts de {{ me.username }}</h2>
+        </div>
+    </div>
+    <div class="m-5">
+        <div *ngFor="let post of myPosts" class="m-3">
+            <app-post-item [post]="post">
+            </app-post-item>
+        </div>
+    </div>
+</div>

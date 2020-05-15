@@ -29,6 +29,16 @@
                     <i class="icono izq fa fa-cogs"></i>Perfil
                 </a>
             </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="misposts">
+                    <i class="icono izq fa fa-list"></i>Mis Posts
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="mislikes">
+                    <i class="icono izq fa fa-heart"></i>Mis Me Gusta
+                </a>
+            </li>
             <li class="nav-item" routerLinkActive="active" *ngIf="user.role == 1">
                 <a class="nav-link" routerLink="usuarios">
                     <i class="icono izq fa fa-cog"></i>Gestión de usuarios

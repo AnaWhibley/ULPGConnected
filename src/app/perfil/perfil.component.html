@@ -4,12 +4,9 @@
             <h2> Datos de {{ me.username }}</h2>
 
         </div>
-        <div class="col">
-            <button type="button" class="btn btn-success m-1" (click)="misPosts()">
-                <i class="icono izq fa fa-list"></i> Mis posts
-            </button>
-            <button type="button" class="btn btn-info m-1" (click)="misLikes()">
-                <i class="icono izq fa fa-heart"></i> Mis Me gusta
+        <div *ngIf="!change" class="col">
+            <button type="button" class="btn btn-warning" (click)="modMisDatos()">
+                <i class="icono izq fa fa-cog"></i> Modificar datos
             </button>
         </div>
 
@@ -43,14 +40,6 @@
                     <tr>
                         <th style="text-align: left;">Correo</th>
                         <td style="text-align: left;">{{me.email}}</td>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <td style="text-align: left;">
-                            <button type="button" class="btn btn-warning" (click)="modMisDatos()">
-                            <i class="icono izq fa fa-cog"></i> Modificar datos
-                        </button>
-                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -107,43 +96,5 @@
 
             </form>
         </div>
-    </div>
-</div>
-
-<div *ngIf="listPosts" class="m-5">
-    <div class="row">
-        <div class="col">
-            <h2> Posts de {{ me.username }}</h2>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-primary" (click)="misPosts()" style="text-align: right">
-                <i class="icono izq fa fa-angle-double-left"></i> Volver
-            </button>
-        </div>
-    </div>
-    <div class="m-5">
-        <div *ngFor="let post of myPosts" class="m-3">
-            <app-post-item [post]="post">
-            </app-post-item>
-        </div>
-    </div>
-</div>
-
-<div *ngIf="listLikes" class="m-5">
-    <div class="row">
-        <div class="col">
-            <h2> Me gusta de {{ me.username }}</h2>
-        </div>
-        <div class="col">
-            <button type="button" class="btn btn-primary" (click)="misLikes()" style="text-align: right">
-                <i class="icono izq fa fa-angle-double-left"></i> Volver
-            </button>
-        </div>
-    </div>
-    <div class="m-5">
-        <!--         <div *ngFor="let post of myLikedPosts" class="m-3">
-            <app-post-item [post]="post">
-            </app-post-item>
-        </div> -->
     </div>
 </div>
