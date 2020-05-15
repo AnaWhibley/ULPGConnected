@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import {Observable} from "rxjs";
+import {from, Observable} from "rxjs";
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
+import {map} from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,12 @@ export class LikeService {
 
   public get likes(): Observable<any> {
     return this.db.collection('likes').valueChanges({idField: 'propertyId'});
+  }
+
+  public getLikesByPostId(postId) {
+    return from(this.likes.pipe(
+      map(c => c.find(dato => dato.postId == postId)),
+    ));
   }
 
 
