@@ -35,4 +35,7 @@ export class PostDetailsComponent implements OnInit {
       this._router.navigate(['/home']);
     }
   }
+  goToHome(){
+    this._router.navigate(['/home']);
+  }
 }
