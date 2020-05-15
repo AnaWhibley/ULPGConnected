@@ -1,5 +1,7 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import * as $ from 'jquery';
+import {LikeService} from '../services/like.service';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-likes',
@@ -8,33 +10,32 @@ import * as $ from 'jquery';
 })
 export class LikesComponent implements OnInit {
 
-  @Input() like: boolean;
-  @Input() postId: string;
+  @Input() propertyId: string;
   @Input() userId: string;
-  @Output() public childEvent = new EventEmitter();
+  @Input() postId: string;
 
-  constructor() {
+  constructor(private likeService: LikeService) {
+
   }
 
   ngOnInit() {
+
   }
 
-  likeDislike(like) {
+  likeDislike() {
     $(function() {
       $(".heart").on("click", function() {
         $(this).toggleClass("is-active");
       });
     });
-    this.like = like;
-    console.log("!!!!!!!! emit");
-    this.childEvent.emit({
-      postId: this.postId,
-      like: this.like
-    });
-  }
-}
 
-export interface LikeClickedEvent {
-  postId: string;
-  like: boolean;
+    this.likeService.isSelected(this.postId, this.userId).pipe(take(1)).subscribe((data)=> {
+      if (data) {
+        this.likeService.removeLike(this.propertyId, this.userId);
+      }else{
+        this.likeService.addLike(this.propertyId, this.userId);
+      }
+    });
+
+  }
 }

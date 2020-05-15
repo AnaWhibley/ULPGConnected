@@ -57,7 +57,8 @@ export class LikeService {
 
   public isSelected(postId, userId): Observable<any> {
     return from(this.likes.pipe(
-      map(c => c.find(dato => dato.postId == postId && dato.likes.contains(userId))),
+      map(c => c.find(dato => dato.postId == postId && dato.likes.includes(userId))),
     ));
   }
+
 }
