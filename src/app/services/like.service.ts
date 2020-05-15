@@ -4,11 +4,14 @@ import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {map} from "rxjs/operators";
 import FieldValue = firebase.firestore.FieldValue;
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LikeService {
+
+  expenseCollection;
 
   constructor(private db: AngularFirestore, private router: Router) { }
 
@@ -16,7 +19,7 @@ export class LikeService {
     return this.db.collection('likes').valueChanges({idField: 'propertyId'});
   }
 
-  public getLikesByPostId(postId) {
+  public getLikesByPostId(postId): Observable<any> {
     return from(this.likes.pipe(
       map(c => c.find(dato => dato.postId == postId)),
     ));
@@ -51,5 +54,10 @@ export class LikeService {
         console.error('Error removing like: ', error);
       });
   }
-  
+
+  public isSelected(postId, userId): Observable<any> {
+    return from(this.likes.pipe(
+      map(c => c.find(dato => dato.postId == postId && dato.likes.contains(userId))),
+    ));
+  }
 }
