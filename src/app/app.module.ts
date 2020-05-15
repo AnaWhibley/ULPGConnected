@@ -27,6 +27,8 @@ import { PostDetailsComponent } from './post-details/post-details.component';
 import { LikesComponent } from './likes/likes.component';
 import { PostCreateComponent } from './post-create/post-create.component';
 import {AuthService} from "./services/auth.service";
+import { MisPostsComponent } from './mis-posts/mis-posts.component';
+import { MisLikesComponent } from './mis-likes/mis-likes.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import {AuthService} from "./services/auth.service";
     PostDetailsComponent,
     LikesComponent,
     PostDetailsComponent,
-    PostCreateComponent
+    PostCreateComponent,
+    MisPostsComponent,
+    MisLikesComponent
   ],
   imports: [
     BrowserModule,
