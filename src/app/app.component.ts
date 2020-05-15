@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import {Router} from '@angular/router';
-import {startWith} from 'rxjs/operators';
+import {LikeClickedEvent} from './likes/likes.component';
 
 @Component({
   selector: 'app-root',
