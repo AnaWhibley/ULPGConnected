@@ -29,7 +29,10 @@ import { PostCreateComponent } from './post-create/post-create.component';
 import {AuthService} from "./services/auth.service";
 import { MisPostsComponent } from './mis-posts/mis-posts.component';
 import { MisLikesComponent } from './mis-likes/mis-likes.component';
-
+import { ReportMenuComponent } from './report-menu/report-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule, MatIconModule} from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -54,7 +57,8 @@ import { MisLikesComponent } from './mis-likes/mis-likes.component';
     PostDetailsComponent,
     PostCreateComponent,
     MisPostsComponent,
-    MisLikesComponent
+    MisLikesComponent,
+    ReportMenuComponent
   ],
   imports: [
     BrowserModule,
@@ -63,6 +67,10 @@ import { MisLikesComponent } from './mis-likes/mis-likes.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule
   ],
   providers: [AngularFireStorage, AuthService],
   bootstrap: [AppComponent]

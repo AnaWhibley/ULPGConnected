@@ -2,8 +2,9 @@
 <div>
     <div class="card-container">
         <div class="card">
-            <div class="card-header font-weight-bold" (click)="goToDetails(post.userId)">
+            <div class="card-header font-weight-bold">
                 {{post.title}}
+              <app-report-menu></app-report-menu>
             </div>
             <div class="card-body" (click)="goToDetails(post.userId)">
                 <p class="card-text">
