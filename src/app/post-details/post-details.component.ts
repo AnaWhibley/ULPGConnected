@@ -35,6 +35,9 @@ export class PostDetailsComponent implements OnInit {
       this._router.navigate(['/home']);
     }
   }
+  reportPost(){
+   console.log("post denunsiado. nos bemos en los jusgados");
+  }
   goToHome(){
     this._router.navigate(['/home']);
   }
