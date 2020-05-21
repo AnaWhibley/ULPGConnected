@@ -1,16 +1,16 @@
 <div class="contenedor-post">
-  <div class="title">
-    <div class="row">
-      <div class="col-sm">
-        <h1>Lista de publicaciones</h1>
-      </div>
-      <div class="col-sm">
-      <button class="btn btn-primary" (click)="createPost()">Crear publicación</button>
-      </div>
+    <div class="title">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Lista de publicaciones</h1>
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary" (click)="createPost()">Crear publicación</button>
+            </div>
+        </div>
+        <div *ngFor="let post of posts | postDateOrder:posts:true">
+            <app-post-item [post]="post">
+            </app-post-item>
+        </div>
     </div>
-    <div *ngFor="let post of posts">
-      <app-post-item [post]="post">
-      </app-post-item>
-    </div>
-  </div>
 </div>
