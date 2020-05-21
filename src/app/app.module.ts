@@ -33,6 +33,7 @@ import { ReportMenuComponent } from './report-menu/report-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule, MatIconModule} from '@angular/material';
+import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import {MatButtonModule, MatIconModule} from '@angular/material';
     PostCreateComponent,
     MisPostsComponent,
     MisLikesComponent,
-    ReportMenuComponent
+    ReportMenuComponent,
+    PostDateOrderPipe
   ],
   imports: [
     BrowserModule,

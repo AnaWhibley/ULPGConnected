@@ -9,7 +9,7 @@ import {Router} from '@angular/router';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-  private posts: any;
+  posts: any;
   constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit() {

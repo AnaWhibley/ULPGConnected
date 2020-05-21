@@ -5,7 +5,7 @@
         </div>
     </div>
     <div class="m-5">
-        <div *ngFor="let post of myPosts" class="m-3">
+        <div *ngFor="let post of myPosts | postDateOrder:myPosts:true" class="m-3">
             <app-post-item [post]="post">
             </app-post-item>
         </div>
