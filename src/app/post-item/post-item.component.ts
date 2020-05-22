@@ -13,7 +13,7 @@ export class PostItemComponent implements OnInit {
   private user: any;
   private likes: any;
   @Input() post;
-  private loguedUser: string;
+  private loguedUser: any;
   private numberLikes: number = 0;
 
   constructor( private router: Router, private userService: UserService,
@@ -35,4 +35,14 @@ export class PostItemComponent implements OnInit {
   goToDetails(id){
     id ? this.router.navigate(['/post-details', id]) : "";
   }
+
+  goToUserDetails(userId: string){
+
+    if (userId == this.loguedUser.id){
+      this.router.navigate(['/me']);
+    } else {
+      userId ? this.router.navigate(['/user-info', userId]) : "";
+    }
+  }
+  
 }
