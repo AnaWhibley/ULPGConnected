@@ -4,7 +4,7 @@
         <div class="card">
             <div class="card-header font-weight-bold">
                 {{post.title}}
-              <app-report-menu></app-report-menu>
+              <app-report-menu [postId]="post.id" *ngIf="likes" [userId]="loguedUser.id"></app-report-menu>
             </div>
             <div class="card-body" (click)="goToDetails(post.userId)">
                 <p class="card-text">
