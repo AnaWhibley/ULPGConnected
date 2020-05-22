@@ -5,6 +5,10 @@ a {
     cursor: pointer;
 }
 
+*:focus {
+  outline:none !important;
+  box-shadow: none !important;
+}
 
 /*------------------------------------
 - COLOR primary
