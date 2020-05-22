@@ -32,8 +32,9 @@ import { MisLikesComponent } from './mis-likes/mis-likes.component';
 import { ReportMenuComponent } from './report-menu/report-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
-import {MatButtonModule, MatIconModule} from '@angular/material';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
 import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
+import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
     MisPostsComponent,
     MisLikesComponent,
     ReportMenuComponent,
-    PostDateOrderPipe
+    PostDateOrderPipe,
+    ReportDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -72,9 +74,13 @@ import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
     BrowserAnimationsModule,
     MatMenuModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [AngularFireStorage, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ReportDialogComponent
+  ]
 })
 export class AppModule { }

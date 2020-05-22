@@ -4,6 +4,7 @@ import {Router} from "@angular/router";
 import {from, Observable} from "rxjs";
 import {map, take} from "rxjs/operators";
 import FieldValue = firebase.firestore.FieldValue;
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
