@@ -14,9 +14,17 @@ span {
 }
 
 .right {
-  float: right;
+  text-align: right;
 }
 
 .card-body, .card-header {
   cursor: pointer;
+}
+
+.title {
+  padding-top: 0.5em;
+}
+
+.rightf {
+  float: right;
 }
