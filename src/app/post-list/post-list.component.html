@@ -4,6 +4,10 @@
             <div class="col-sm">
                 <h1>Lista de publicaciones</h1>
             </div>
+            <div class="searchBar">
+              <span class="fa fa-search"></span>
+              <input type="text" placeholder="buscar usuario" ngModel name="user" #user="ngModel" (change)="searchUser(user)">
+            </div>
             <div class="col-sm">
                 <button class="btn btn-primary" (click)="createPost()">Crear publicación</button>
             </div>
