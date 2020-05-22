@@ -1,0 +1,50 @@
+<div class="row">
+    <div class="col">
+        <h2 *ngIf="change"> Datos de {{ userInfo.username}}</h2>
+        <h2 *ngIf="!change"> Posts de {{ userInfo.username}}</h2>
+
+    </div>
+    <div class="col">
+        <button type="button" class="btn btn-info" (click)="viewPosts()" *ngIf="change">
+            <i class="icono izq fa fa-list"></i> Posts de {{ userInfo.username}}
+        </button>
+
+        <button type="button" class="btn btn-info" (click)="viewPosts()" *ngIf="!change">
+            <i class="icono izq fa fa-id-card"></i> Datos de {{ userInfo.username}}
+        </button>
+        <button type="button" class="btn btn-outline-secondary m-2" (click)="follow()" *ngIf="!following">
+            <i class="icono izq fa fa-user-plus"></i> Seguir
+        </button>
+        <button type="button" class="btn btn-outline-secondary m-2" (click)="unfollow()" *ngIf="following">
+            <i class="icono izq fas fa-user-minus"></i> Dejar de Seguir
+        </button>
+    </div>
+</div>
+
+<div class="m-5" *ngIf="change">
+    <table class="table table-hover table-light">
+        <thead>
+            <tr>
+                <th style="text-align: left;">USUARIO</th>
+                <th style="text-align: left;"> {{userInfo.username}} </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th style="text-align: left; width: 20%;">ROL</th>
+                <td style="text-align: left; width: 80%;">
+                    <span class="badge badge-pill badge-info" *ngIf="userInfo.role == 2"> Usuario </span>
+                    <span class="badge badge-pill badge-success" *ngIf="userInfo.role == 1"> Administrador </span>
+                </td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Nombre</th>
+                <td style="text-align: left;">{{userInfo.name}}</td>
+            </tr>
+            <tr>
+                <th style="text-align: left;">Apellidos</th>
+                <td style="text-align: left;">{{userInfo.surname}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

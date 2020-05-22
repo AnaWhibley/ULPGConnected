@@ -29,7 +29,13 @@ import { PostCreateComponent } from './post-create/post-create.component';
 import {AuthService} from "./services/auth.service";
 import { MisPostsComponent } from './mis-posts/mis-posts.component';
 import { MisLikesComponent } from './mis-likes/mis-likes.component';
-
+import { ReportMenuComponent } from './report-menu/report-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
+import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
+import { ReportDialogComponent } from './report-dialog/report-dialog.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +60,11 @@ import { MisLikesComponent } from './mis-likes/mis-likes.component';
     PostDetailsComponent,
     PostCreateComponent,
     MisPostsComponent,
-    MisLikesComponent
+    MisLikesComponent,
+    ReportMenuComponent,
+    PostDateOrderPipe,
+    ReportDialogComponent,
+    UserInfoComponent
   ],
   imports: [
     BrowserModule,
@@ -63,8 +73,16 @@ import { MisLikesComponent } from './mis-likes/mis-likes.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
   ],
   providers: [AngularFireStorage, AuthService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ReportDialogComponent
+  ]
 })
 export class AppModule { }

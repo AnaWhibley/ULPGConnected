@@ -14,18 +14,27 @@
   <div>
     <div class="card-container">
       <div class="card">
-        <div class="card-header">
-          {{post?.title}}
+        <div class="card-header font-weight-bold">
+          <div class="row">
+            <div class="title col-lg-6 col-md-6 col-6">
+              {{post?.title}}
+            </div>
+            <app-report-menu
+              class="col-lg-6 col-md-6 col-6 right"
+              [postId]="postId" *ngIf="post" [userId]="currentUser.id">
+            </app-report-menu>
+          </div>
         </div>
         <div class="card-body">
           <p class="card-text">
             {{post?.description}}
           </p>
         </div>
-        <div class="card-footer text-muted ">
-          <span class="col-sm user">{{post?.username}}</span>
-          <span class="col-sm user">{{post?.fullName}}</span>
-          <span class="col-sm user">{{post?.date}}</span>
+        <div class="card-footer text-muted font-weight-bold">
+          <div class="row">
+            <span class="col-6">@{{post?.userName}}</span>
+            <span class="col-6"><i class="fa fa-calendar"></i> {{post?.date}}</span>
+          </div>
         </div>
       </div>
     </div>
