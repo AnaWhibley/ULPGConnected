@@ -10,6 +10,7 @@ import {Router} from '@angular/router';
 })
 export class PostListComponent implements OnInit {
   posts: any;
+  user: String;
   constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit() {
@@ -20,5 +21,7 @@ export class PostListComponent implements OnInit {
   createPost(){
     this.router.navigate(['/postCreate']);
   }
-
+  searchUser(user){
+    console.log("Buscar usuario: ", user.viewModel)
+  }
 }

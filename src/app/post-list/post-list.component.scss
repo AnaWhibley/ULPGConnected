@@ -3,4 +3,21 @@
   .title{
     margin-left: 2rem;
   }
+  .searchBar {
+    position: relative;
+  }
+  .searchBar input {
+    text-indent: 2rem;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: grey;
+  }
+  .searchBar .fa-search {
+    color: grey;
+    position: absolute;
+    top: .4rem;
+    left: .4rem;
+    font-size: 15px;
+  }
+
 }
