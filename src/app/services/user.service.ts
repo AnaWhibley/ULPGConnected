@@ -44,6 +44,12 @@ export class UserService {
     ));
   }
 
+  getUserByOtherId(id): Observable<any>{
+    return from(this.users.pipe(
+      map(c => c.find(dato => dato.id == id)),
+    ));
+  }
+
   getUserByEmail(email): Observable<any>{
     return from(this.users.pipe(
       map(c => c.find(dato => dato.email == email)),

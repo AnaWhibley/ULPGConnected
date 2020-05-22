@@ -11,6 +11,7 @@ import {PostDetailsComponent} from "./post-details/post-details.component";
 import {PostCreateComponent} from "./post-create/post-create.component";
 import { MisPostsComponent } from './mis-posts/mis-posts.component';
 import { MisLikesComponent } from './mis-likes/mis-likes.component';
+import { UserInfoComponent } from './user-info/user-info.component';
 
 
 const ROUTES: Routes = [
@@ -25,6 +26,7 @@ const ROUTES: Routes = [
   { path: 'postCreate', component: PostCreateComponent},
   { path: 'mislikes', component: MisLikesComponent},
   { path: 'misposts', component: MisPostsComponent},
+  { path: 'user-info/:id', component: UserInfoComponent },
   { path: '**', pathMatch: 'full', redirectTo: ''}
 ];
 
