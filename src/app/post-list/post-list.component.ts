@@ -24,15 +24,16 @@ export class PostListComponent implements OnInit {
     this.router.navigate(['/postCreate']);
   }
   searchUser(user){
-    const username = user.viewModel;
+    const data = user.viewModel;
     if(user.viewModel && user.viewModel !== ' '){
       let posts;
       posts = this.allPosts.filter((post) => {
-        return post.userName === username;
+        return post.userName === data || post.email === data || post.fullName === data || post.date === data;
       });
       this.posts = posts;
     }else{
       this.posts = this.allPosts;
     }
+    console.log(this.allPosts);
   }
 }
