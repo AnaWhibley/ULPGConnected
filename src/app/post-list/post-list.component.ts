@@ -10,18 +10,29 @@ import {Router} from '@angular/router';
 })
 export class PostListComponent implements OnInit {
   posts: any;
+  allPosts: any;
   user: String;
   constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit() {
     this.postService.posts.subscribe((posts: any) => {
       this.posts = posts;
+      this.allPosts = posts;
     });
   }
   createPost(){
     this.router.navigate(['/postCreate']);
   }
   searchUser(user){
-    console.log("Buscar usuario: ", user.viewModel)
+    const username = user.viewModel;
+    if(user.viewModel && user.viewModel !== ' '){
+      let posts;
+      posts = this.allPosts.filter((post) => {
+        return post.userName === username;
+      });
+      this.posts = posts;
+    }else{
+      this.posts = this.allPosts;
+    }
   }
 }

@@ -14,7 +14,7 @@
       <div class="col">
         <div class="form-group">
           <label for="surname">Apellidos</label>
-          <input requires [(ngModel)]="user.surname" name="surname" #surname="ngModel" (change)="updateUserDetails(surname)" type="text" class="form-control" id="surname">
+          <input required [(ngModel)]="user.surname" name="surname" #surname="ngModel" (change)="updateUserDetails(surname)" type="text" class="form-control" id="surname">
         </div>
       </div>
     </div>
@@ -33,7 +33,7 @@
       </div>
     </div>
     <div class="row check">
-      <input required ngModel name="checkbox" #admin="ngModel" (change)="updateUserDetails(admin)" type="checkbox" >
+      <input required ngModel name="checkbox" #admin="ngModel" (change)="updateUserDetails(admin)" type="checkbox">
       <span class="admin">Administrador</span>
     </div>
     <div class="row ">
