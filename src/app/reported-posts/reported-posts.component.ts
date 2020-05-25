@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ReportService} from '../services/report.service';
 
 @Component({
   selector: 'app-reported-posts',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReportedPostsComponent implements OnInit {
 
-  constructor() { }
+  private reports : any;
+
+  constructor( private reportService: ReportService) { }
 
   ngOnInit() {
+    this.reportService.reports.subscribe(reports => {
+      this.reports =reports;
+      console.log(reports);
+    });
   }
 
 }
