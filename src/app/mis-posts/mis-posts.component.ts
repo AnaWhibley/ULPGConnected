@@ -13,6 +13,8 @@ export class MisPostsComponent implements OnInit {
   me: any;
   subs: Subscription;
   subs2: Subscription;
+  subs3: Subscription;
+
 
   myPosts = [];
 
@@ -27,12 +29,19 @@ export class MisPostsComponent implements OnInit {
     });
 
     this.subs2 = this.postService.posts.subscribe( (data: any) => {
-      this.myPosts = data.filter( post => post.userId === this.me.id);
+      //this.myPosts = data.filter( post => post.userId === this.me.id);
     });
+
+    this.subs3 = this.postService.getPostByUserId2(this.me.id)
+    .subscribe((data: any) => {
+      this.myPosts = data;
+      //console.log('probando ',data);
+    })
   }
 
   ngOnDestroy(){
     this.subs.unsubscribe();
     this.subs2.unsubscribe();
+    this.subs3.unsubscribe();
   }
 }

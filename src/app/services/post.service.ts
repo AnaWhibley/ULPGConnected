@@ -67,4 +67,10 @@ export class PostService {
         console.error("Error removing document: ", error);
       });
   }
+//corrección propuesta por amin
+  getPostByUserId2(userId): Observable<any> {
+    return from(this.posts.pipe(
+      map(c => c.filter(dato => dato.userId == userId)),
+    ));
+  }
 }
