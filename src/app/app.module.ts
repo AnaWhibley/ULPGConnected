@@ -36,6 +36,7 @@ import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material
 import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { UserInfoComponent } from './user-info/user-info.component';
+import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +65,8 @@ import { UserInfoComponent } from './user-info/user-info.component';
     ReportMenuComponent,
     PostDateOrderPipe,
     ReportDialogComponent,
-    UserInfoComponent
+    UserInfoComponent,
+    ReportedPostsComponent
   ],
   imports: [
     BrowserModule,

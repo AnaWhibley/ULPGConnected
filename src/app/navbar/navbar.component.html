@@ -44,6 +44,11 @@
                     <i class="icono izq fa fa-cog"></i>Gestión de usuarios
                 </a>
             </li>
+          <li class="nav-item" routerLinkActive="active" *ngIf="user.role == 1">
+            <a class="nav-link" routerLink="reports">
+              <i class="icono izq fa fa-warning"></i>Gestionar reports
+            </a>
+          </li>
             <br>
             <br>
             <li class="nav-item">
