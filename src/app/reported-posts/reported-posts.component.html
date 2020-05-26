@@ -1,1 +1,42 @@
-<p>reported-posts works!</p>
+<div class="container">
+  <table class="table">
+    <thead>
+    <tr>
+      <th scope="col">Post</th>
+      <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let post of postsReported">
+      <td>
+        <div class="card-container">
+          <div class="card">
+            <div class="card-header font-weight-bold">
+              <div class="row">
+                <div class="title col-lg-6 col-md-6 col-6">
+                  {{post?.title}}
+                </div>
+              </div>
+            </div>
+            <div class="card-body" (click)="goToDetails(post.userId)">
+              <p class="card-text">
+                {{post?.description}}
+              </p>
+            </div>
+            <div class="card-footer text-muted font-weight-bold">
+              <div class="row">
+                <span class="col-6" (click)="goToUserDetails(post.userId)">@{{post.userName}}</span>
+                <span class="col-6"><i class="fa fa-calendar"></i> {{post.date}}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </td>
+      <td class="buttons">
+        <button class="btn btn-success">Marcar como resuelto</button>
+        <button class="btn btn-danger">Eliminar post</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
