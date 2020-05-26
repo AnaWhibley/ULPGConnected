@@ -122,7 +122,7 @@ export class UserService {
       .doc(propertyId)
       .update(
         {
-          "follower": FieldValue.arrayUnion(myUserId)
+          "followers": FieldValue.arrayUnion(myUserId)
         }
       ).then(() => {
       console.log('done');
@@ -149,7 +149,7 @@ export class UserService {
       .doc(propertyId)
       .update(
         {
-          "follower": FieldValue.arrayRemove(myUserId)
+          "followers": FieldValue.arrayRemove(myUserId)
         }
       ).then(() => {
       console.log('done');

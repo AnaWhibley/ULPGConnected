@@ -18,7 +18,7 @@ export class AppComponent implements OnInit {
             .subscribe( userDetails => {
               this.logued = !!userDetails;
               console.log('Alguien ha hecho log?', userDetails, !!userDetails);
-              this.router.navigate(['']);
+              /* this.router.navigate(['']); */
             });
    }
 
