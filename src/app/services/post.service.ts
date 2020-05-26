@@ -56,6 +56,12 @@ export class PostService {
     ));
   }
 
+  getPostById(postId): Observable<any> {
+    return from(this.posts.pipe(
+      map(c => c.find(dato => dato.id == postId)),
+    ));
+  }
+
   deletePost(propertyId) {
     this.db.collection("posts")
       .doc(propertyId)
@@ -66,5 +72,11 @@ export class PostService {
       function (error) {
         console.error("Error removing document: ", error);
       });
+  }
+//corrección propuesta por amin
+  getPostByUserId2(userId): Observable<any> {
+    return from(this.posts.pipe(
+      map(c => c.filter(dato => dato.userId == userId)),
+    ));
   }
 }

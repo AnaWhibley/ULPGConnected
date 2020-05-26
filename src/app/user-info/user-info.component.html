@@ -48,3 +48,11 @@
         </tbody>
     </table>
 </div>
+<div class="m-5" *ngIf="!change">
+    <div class="m-5">
+        <div *ngFor="let post of userPosts | postDateOrder:userPosts:true" class="m-3">
+            <app-post-item [post]="post">
+            </app-post-item>
+        </div>
+    </div>
+</div>
