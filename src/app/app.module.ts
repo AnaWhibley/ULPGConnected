@@ -86,7 +86,8 @@ import { DeleteReportedPostDialogComponent } from './reported-posts/delete-repor
   providers: [AngularFireStorage, AuthService],
   bootstrap: [AppComponent],
   entryComponents: [
-    ReportDialogComponent
+    ReportDialogComponent,
+    DeleteReportedPostDialogComponent
   ]
 })
 export class AppModule { }
