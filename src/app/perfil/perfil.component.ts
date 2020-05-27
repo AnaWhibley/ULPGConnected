@@ -19,6 +19,9 @@ export class PerfilComponent implements OnInit, OnDestroy {
   misDatos = true;
   change = false;
 
+  nFollowers: number;
+  nFollowing: number;
+
   
   constructor(private authService: AuthService,
               private userService: UserService) { }
@@ -28,6 +31,8 @@ export class PerfilComponent implements OnInit, OnDestroy {
     this.subs = this.authService.userStatusChanges
       .subscribe( userDetails => {
         this.me = userDetails;
+        this.nFollowers = this.me.followers.length;
+        this.nFollowing = this.me.following.length;
     });
     this.subs2 = this.userService.getUserByName(this.me.name)
       .subscribe( data => {

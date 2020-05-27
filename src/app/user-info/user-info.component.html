@@ -2,7 +2,28 @@
     <div class="col">
         <h2 *ngIf="change"> Datos de {{ userInfo.username}}</h2>
         <h2 *ngIf="!change"> Posts de {{ userInfo.username}}</h2>
-
+    </div>
+    <div class="col" style="align-content: center;">
+        <table>
+            <thead>
+                <tr>
+                    <th style="text-align: center;"> {{nFollowers}} </th>
+                    <th></th>
+                    <th style="text-align: center;">{{nFollowing}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th style="text-align: center">
+                        Seguidores
+                    </th>
+                    <th>|</th>
+                    <th style="text-align: center">
+                        Seguidos
+                    </th>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <div class="col">
         <button type="button" class="btn btn-info" (click)="viewPosts()" *ngIf="change">
