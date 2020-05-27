@@ -37,6 +37,7 @@ import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
+import { MatSlideToggleModule} from "@angular/material/slide-toggle";
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ReportedPostsComponent } from './reported-posts/reported-posts.componen
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
+    MatSlideToggleModule
   ],
   providers: [AngularFireStorage, AuthService],
   bootstrap: [AppComponent],

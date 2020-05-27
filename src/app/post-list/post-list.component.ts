@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PostItemComponent} from "../post-item/post-item.component";
 import {PostService} from "../services/post.service";
 import {Router} from '@angular/router';
@@ -12,6 +12,7 @@ export class PostListComponent implements OnInit {
   posts: any;
   allPosts: any;
   user: String;
+  checked: Boolean
   constructor(private router: Router, private postService: PostService) { }
 
   ngOnInit() {
@@ -35,5 +36,9 @@ export class PostListComponent implements OnInit {
       this.posts = this.allPosts;
     }
     console.log(this.allPosts);
+  }
+  followedUsers(checked){
+    checked && checked.name === 'switch' && checked.viewModel ? this.checked = checked.viewModel : this.checked = false;
+    console.log(this.checked);
   }
 }

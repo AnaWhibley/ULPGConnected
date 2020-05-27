@@ -4,6 +4,10 @@
             <div class="col-sm">
                 <h1>Lista de publicaciones</h1>
             </div>
+         <div class="toogle">
+           <label>Posts de usuarios que sigo</label>
+           <mat-slide-toggle ngModel #checked="ngModel" name="switch" (change)="followedUsers(checked)" id="hehe"></mat-slide-toggle>
+         </div>
             <div class="searchBar">
               <span class="fa fa-search"></span>
               <input type="text" placeholder="buscar usuario" ngModel name="user" #user="ngModel" (change)="searchUser(user)" id="user">
