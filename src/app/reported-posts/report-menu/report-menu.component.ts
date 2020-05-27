@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ReportService} from '../services/report.service';
+import {ReportService} from '../../services/report.service';
 import {MatDialog} from '@angular/material';
 import {ReportDialogComponent} from '../report-dialog/report-dialog.component';
 
