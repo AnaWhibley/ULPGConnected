@@ -18,14 +18,14 @@
                 </div>
               </div>
             </div>
-            <div class="card-body" (click)="goToDetails(post.userId)">
+            <div class="card-body">
               <p class="card-text">
                 {{post?.description}}
               </p>
             </div>
             <div class="card-footer text-muted font-weight-bold">
               <div class="row">
-                <span class="col-6" (click)="goToUserDetails(post.userId)">@{{post.userName}}</span>
+                <span class="col-6">@{{post.userName}}</span>
                 <span class="col-6"><i class="fa fa-calendar"></i> {{post.date}}</span>
               </div>
             </div>
@@ -34,7 +34,7 @@
       </td>
       <td class="buttons">
         <button class="btn btn-success">Marcar como resuelto</button>
-        <button class="btn btn-danger">Eliminar post</button>
+        <button class="btn btn-danger" (click)="deletePost(post.propertyId)">Eliminar post</button>
       </td>
     </tr>
     </tbody>

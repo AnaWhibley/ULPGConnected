@@ -11,14 +11,17 @@ import { PostService } from '../services/post.service';
 })
 export class UserInfoComponent implements OnInit, OnDestroy {
 
-  me: any;
   subs: Subscription;
   subs2: Subscription;
   subs3: Subscription;
   subs4: Subscription;
+  subs5: Subscription;
+
+  me: any;
   userId: string;
   myPropertyId: string;
   userInfo: any;
+
   userPosts = [];
   change = true;
   following = false;
@@ -55,7 +58,14 @@ export class UserInfoComponent implements OnInit, OnDestroy {
     this.subs4 = this.postService.getPostByUserId2(this.userId)
     .subscribe((data: any) => {
       this.userPosts = data;
-    })
+    });
+
+    this.subs5 = this.userService.isFollowed(this.me.id, this.userId)
+    .subscribe( data => {
+      if (data){
+        this.following = true;
+      }
+    });
 
     console.log('Ignoren el fallo que sale en consola');
   }
@@ -65,18 +75,22 @@ export class UserInfoComponent implements OnInit, OnDestroy {
     this.subs2.unsubscribe();
     this.subs3.unsubscribe();
     this.subs4.unsubscribe();
+    this.subs5.unsubscribe();
   }
 
   viewPosts(){
     this.change = !this.change
   }
-
+// addFollow(myPropertyId, userId, propertyId, myUserId )
   follow(){
     this.following = true;
+    this.userService.addFollow(this.myPropertyId, this.userInfo.id, this.userInfo.propertyId, this.me.id);
   }
   
+
   unfollow(){
     this.following = false;
+    this.userService.removeFollow(this.myPropertyId, this.userInfo.id, this.userInfo.propertyId, this.me.id);
   }
 
 
