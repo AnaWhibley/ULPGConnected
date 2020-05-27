@@ -29,14 +29,15 @@ import { PostCreateComponent } from './post-create/post-create.component';
 import {AuthService} from "./services/auth.service";
 import { MisPostsComponent } from './mis-posts/mis-posts.component';
 import { MisLikesComponent } from './mis-likes/mis-likes.component';
-import { ReportMenuComponent } from './report-menu/report-menu.component';
+import { ReportMenuComponent } from './reported-posts/report-menu/report-menu.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatMenuModule} from '@angular/material/menu';
 import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
 import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
-import { ReportDialogComponent } from './report-dialog/report-dialog.component';
+import { ReportDialogComponent } from './reported-posts/report-dialog/report-dialog.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
+import { DeleteReportedPostDialogComponent } from './reported-posts/delete-reported-post-dialog/delete-reported-post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,8 @@ import { ReportedPostsComponent } from './reported-posts/reported-posts.componen
     PostDateOrderPipe,
     ReportDialogComponent,
     UserInfoComponent,
-    ReportedPostsComponent
+    ReportedPostsComponent,
+    DeleteReportedPostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -84,7 +86,8 @@ import { ReportedPostsComponent } from './reported-posts/reported-posts.componen
   providers: [AngularFireStorage, AuthService],
   bootstrap: [AppComponent],
   entryComponents: [
-    ReportDialogComponent
+    ReportDialogComponent,
+    DeleteReportedPostDialogComponent
   ]
 })
 export class AppModule { }
