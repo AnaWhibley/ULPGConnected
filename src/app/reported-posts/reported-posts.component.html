@@ -25,16 +25,16 @@
             </div>
             <div class="card-footer text-muted font-weight-bold">
               <div class="row">
-                <span class="col-6">@{{post.userName}}</span>
-                <span class="col-6"><i class="fa fa-calendar"></i> {{post.date}}</span>
+                <span class="col-6">@{{post?.userName}}</span>
+                <span class="col-6"><i class="fa fa-calendar"></i> {{post?.date}}</span>
               </div>
             </div>
           </div>
         </div>
       </td>
       <td class="buttons">
-        <button class="btn btn-success">Marcar como resuelto</button>
-        <button class="btn btn-danger" (click)="deletePost(post.propertyId)">Eliminar post</button>
+        <button class="btn btn-success" (click)="checkPost(post.reportPropertyId)">Marcar como resuelto</button>
+        <button class="btn btn-danger" (click)="deletePost(post.propertyId, post.reportPropertyId)">Eliminar post</button>
       </td>
     </tr>
     </tbody>

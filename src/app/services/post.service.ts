@@ -62,11 +62,12 @@ export class PostService {
     ));
   }
 
-  deletePost(propertyId) {
+  deletePost(propertyId, cb?) {
     this.db.collection("posts")
       .doc(propertyId)
       .delete()
       .then(function () {
+        if (cb) cb();
         console.log("Document successfully deleted!");
       }).catch(
       function (error) {

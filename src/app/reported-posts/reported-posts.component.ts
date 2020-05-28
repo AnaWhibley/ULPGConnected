@@ -5,6 +5,8 @@ import {Router} from '@angular/router';
 import {AuthService} from '../services/auth.service';
 import {MatDialog} from '@angular/material';
 import {DeleteReportedPostDialogComponent} from './delete-reported-post-dialog/delete-reported-post-dialog.component';
+import {CheckedReportedPostDialogComponent} from './checked-reported-post-dialog/checked-reported-post-dialog.component';
+import {take} from 'rxjs/operators';
 
 @Component({
   selector: 'app-reported-posts',
@@ -27,11 +29,15 @@ export class ReportedPostsComponent implements OnInit {
   ngOnInit() {
     this.reportService.reports.subscribe(reports => {
       this.reports = reports;
+      console.log("!!!!!", this.reports);
+      this.postsReported = [];
       this.reports.forEach(report => {
-        this.postService.getPostById(report.postId).subscribe( element => {
-          if (element !== undefined) {
-            this.postsReported.push(element);
-          }
+        this.postService.getPostById(report.postId).pipe(take(1)).subscribe( element => {
+          this.postsReported.push({
+            ...element,
+            reportPropertyId: report.propertyId,
+          });
+            console.log(":)))))))))))", this.postsReported);
           }
         );
       });
@@ -43,9 +49,18 @@ export class ReportedPostsComponent implements OnInit {
       });
   }
 
-  deletePost(propertyId: string) {
-    this.postService.deletePost(propertyId);
-    this.dialog.open(DeleteReportedPostDialogComponent);
-    this.router.navigate(['/home']);
+  deletePost(propertyId: string, reportId: string) {
+    const deleteReport = () => this.reportService.deleteReport(reportId, showDialog);
+    const showDialog = () => {
+      this.dialog.open(DeleteReportedPostDialogComponent);
+    };
+    this.postService.deletePost(propertyId, deleteReport);
+  }
+
+  checkPost(reportId: string) {
+    const showDialog = () => {
+      this.dialog.open(CheckedReportedPostDialogComponent);
+    };
+    this.reportService.deleteReport(reportId, showDialog);
   }
 }

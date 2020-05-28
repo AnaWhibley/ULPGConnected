@@ -54,4 +54,31 @@ export class ReportService {
     });
   }
 
+  deleteReport(propertyId, cb?) {
+    this.db.collection("reports")
+      .doc(propertyId)
+      .delete()
+      .then(function () {
+        if (cb) cb();
+        console.log("Document successfully deleted!");
+      }).catch(
+      function(error) {
+        console.error("Error removing document: ", error);
+      });
+  }
+
+
+  /*
+  * deletePost(propertyId) {
+    this.db.collection("posts")
+      .doc(propertyId)
+      .delete()
+      .then(function () {
+        console.log("Document successfully deleted!");
+      }).catch(
+      function (error) {
+        console.error("Error removing document: ", error);
+      });
+  }*/
+
 }
