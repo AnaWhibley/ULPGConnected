@@ -21,6 +21,8 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   userId: string;
   myPropertyId: string;
   userInfo: any;
+  nFollowers: number;
+  nFollowing: number;
 
   userPosts = [];
   change = true;
@@ -48,6 +50,8 @@ export class UserInfoComponent implements OnInit, OnDestroy {
     .subscribe( user => {
       // aquí podemos sacar propertyId
       this.userInfo = user;
+      this.nFollowers = this.userInfo.followers.length;
+      this.nFollowing = this.userInfo.following.length;
     });
 
     this.subs3 = this.userService.getUserByOtherId(this.me.id)
