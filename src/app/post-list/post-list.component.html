@@ -5,18 +5,18 @@
                 <h1>Lista de publicaciones</h1>
             </div>
          <div class="toogle">
-           <label>Posts de usuarios que sigo</label>
-           <mat-slide-toggle ngModel #checked="ngModel" name="switch" (change)="followedUsers(checked)" id="hehe"></mat-slide-toggle>
+           <label><b>Usuarios que sigo</b></label>
+           <mat-slide-toggle ngModel #checked="ngModel" name="switch" (change)="changeFeed(checked)" id="switch"></mat-slide-toggle>
          </div>
             <div class="searchBar">
               <span class="fa fa-search"></span>
-              <input type="text" placeholder="buscar usuario" ngModel name="user" #user="ngModel" (change)="searchUser(user)" id="user">
+              <input type="text" placeholder="buscar usuario" ngModel name="user" #user="ngModel" (change)="aux(user)" id="user">
             </div>
             <div class="col-sm">
                 <button class="btn btn-primary" (click)="createPost()">Crear publicación</button>
             </div>
         </div>
-        <div *ngFor="let post of posts | postDateOrder:posts:true">
+        <div *ngFor="let post of filteredPosts | postDateOrder:filteredPosts:true">
             <app-post-item [post]="post">
             </app-post-item>
         </div>
