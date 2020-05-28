@@ -38,6 +38,7 @@ import { ReportDialogComponent } from './reported-posts/report-dialog/report-dia
 import { UserInfoComponent } from './user-info/user-info.component';
 import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
 import { DeleteReportedPostDialogComponent } from './reported-posts/delete-reported-post-dialog/delete-reported-post-dialog.component';
+import { CheckedReportedPostDialogComponent } from './reported-posts/checked-reported-post-dialog/checked-reported-post-dialog.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { DeleteReportedPostDialogComponent } from './reported-posts/delete-repor
     ReportDialogComponent,
     UserInfoComponent,
     ReportedPostsComponent,
-    DeleteReportedPostDialogComponent
+    DeleteReportedPostDialogComponent,
+    CheckedReportedPostDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -87,7 +89,8 @@ import { DeleteReportedPostDialogComponent } from './reported-posts/delete-repor
   bootstrap: [AppComponent],
   entryComponents: [
     ReportDialogComponent,
-    DeleteReportedPostDialogComponent
+    DeleteReportedPostDialogComponent,
+    CheckedReportedPostDialogComponent
   ]
 })
 export class AppModule { }
