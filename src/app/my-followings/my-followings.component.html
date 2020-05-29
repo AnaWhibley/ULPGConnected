@@ -4,9 +4,24 @@
       <h2 *ngIf="me"> Seguidos por {{ me.username }} ({{ nFollowing }})</h2>
     </div>
   </div>
-  <div class="m-5">
-    <div *ngFor="let user of followings" class="m-3">
-      <span *ngIf="user" class="col-4" (click)="goToUserDetails(user.id)">@{{user.username}} {{user.name}}</span>
-    </div>
-  </div>
+</div>
+<div class="m-5">
+  <table class="table">
+    <thead class="thead-dark">
+    <tr>
+      <th scope="col">Usuario</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Seguidores</th>
+      <th scope="col">Seguidos</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of followings">
+      <th scope="row"> <span *ngIf="user" (click)="goToUserDetails(user.id)">{{user.username}}</span> </th>
+      <td> {{user.name}} {{user.surname}} </td>
+      <td> {{user.followers.length}} </td>
+      <td> {{user.following.length}} </td>
+    </tr>
+    </tbody>
+  </table>
 </div>
