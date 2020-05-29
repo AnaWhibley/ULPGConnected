@@ -6,6 +6,7 @@
   </div>
   <div class="m-5">
     <div *ngFor="let user of followers" class="m-3">
+      <span class="col-4" (click)="goToUserDetails(user.userId)">@{{user.userName}}</span>
       <!--<app-user-item [user]="user">
       </app-user-item>-->
     </div>
