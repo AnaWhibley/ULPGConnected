@@ -42,7 +42,6 @@ import { DeleteReportedPostDialogComponent } from './reported-posts/delete-repor
 import { CheckedReportedPostDialogComponent } from './reported-posts/checked-reported-post-dialog/checked-reported-post-dialog.component';
 import { MyFollowersComponent } from './my-followers/my-followers.component';
 import { MyFollowingsComponent } from './my-followings/my-followings.component';
-import { UserItemComponent } from './user-item/user-item.component';
 
 @NgModule({
   declarations: [
@@ -76,8 +75,7 @@ import { UserItemComponent } from './user-item/user-item.component';
     DeleteReportedPostDialogComponent,
     CheckedReportedPostDialogComponent,
     MyFollowersComponent,
-    MyFollowingsComponent,
-    UserItemComponent
+    MyFollowingsComponent
   ],
   imports: [
     BrowserModule,
