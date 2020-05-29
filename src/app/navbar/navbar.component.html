@@ -39,6 +39,16 @@
                     <i class="icono izq fa fa-heart"></i>Mis Me Gusta
                 </a>
             </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="myfollwers">
+                    <i class="icono izq fa fa-arrow-circle-left"></i>Mis seguidores
+                </a>
+            </li>
+            <li class="nav-item" routerLinkActive="active">
+                <a class="nav-link" routerLink="myfollwings">
+                    <i class="icono izq fa fa-arrow-circle-right"></i>Mis seguimientos
+                </a>
+            </li>
             <li class="nav-item" routerLinkActive="active" *ngIf="user.role == 1">
                 <a class="nav-link" routerLink="usuarios">
                     <i class="icono izq fa fa-cog"></i>Gestión de usuarios
