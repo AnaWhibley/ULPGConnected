@@ -24,6 +24,10 @@ export class AuthService {
 
   }
 
+  //Método para obtener el id del usuario de la sesión actual para la creación del post
+  getCurrentUser(){
+    return this.currentUser;
+  }
   setUserStatus(userStatus: any): void {
     this.userStatus = userStatus;
     this.userStatusChanges.next(userStatus);
@@ -40,12 +44,18 @@ export class AuthService {
             this.setUserStatus(this.currentUser);
             // no tiene sentido
             if(userRef.data().role !== 2) {
-              console.log("Administrador logeado")
+              console.log("Administrador logeado");
+
+              // Amin tocando
+              this.userStatusChanges.next(this.currentUser);
+              this.ngZone.run(() => this.router.navigate(["home"]));
               //this.router.navigate(["login"]);
             }else{
               console.log("Usuario logeado");
+              // Amin tocando
+              this.userStatusChanges.next(this.currentUser);
+              this.ngZone.run(() => this.router.navigate(["home"]));
               //this.router.navigate(["home"]);
-              //por aqui  
             }
           })
         })
@@ -58,6 +68,7 @@ export class AuthService {
     this.afAuth.auth.signOut()
       .then(()=>{
         console.log("user signed out successfully");
+        this.userStatusChanges.next(undefined);
         this.currentUser = null;
         //set the listenener to be null, for the UI to react
         this.setUserStatus(null);
@@ -90,8 +101,7 @@ export class AuthService {
               //return the user data
               this.currentUser = x.data();
               this.setUserStatus(this.currentUser);
-              this.router.navigate(["/"]);
-
+              this.router.navigate(["home"]);
             })
           }).catch(err => {
           console.log(err);

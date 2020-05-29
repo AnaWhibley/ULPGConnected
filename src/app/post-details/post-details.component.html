@@ -1,0 +1,42 @@
+<div>
+  <div class="row">
+    <div class="col">
+      <button (click)="goToHome()"><svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24"><path d="M0 0h24v24H0V0z" fill="none"/><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg></button>
+    </div>
+    <div class="col-sm">
+      <h1>Detalles del tweet</h1>
+    </div>
+    <div class="col-sm">
+      <button class="btn btn-danger" *ngIf="currentUser?.id === post?.userId || currentUser?.role === 1" (click)="deletePost()">Eliminar publicación</button>
+      <button class="btn btn-warning" *ngIf="currentUser?.role !== 1" (click)="reportPost()">Denunciar</button>
+    </div>
+  </div>
+  <div>
+    <div class="card-container">
+      <div class="card">
+        <div class="card-header font-weight-bold">
+          <div class="row">
+            <div class="title col-lg-6 col-md-6 col-6">
+              {{post?.title}}
+            </div>
+            <app-report-menu
+              class="col-lg-6 col-md-6 col-6 right"
+              [postId]="postId" *ngIf="post" [userId]="currentUser.id">
+            </app-report-menu>
+          </div>
+        </div>
+        <div class="card-body">
+          <p class="card-text">
+            {{post?.description}}
+          </p>
+        </div>
+        <div class="card-footer text-muted font-weight-bold">
+          <div class="row">
+            <span class="col-6">@{{post?.userName}}</span>
+            <span class="col-6"><i class="fa fa-calendar"></i> {{post?.date}}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

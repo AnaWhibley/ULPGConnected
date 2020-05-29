@@ -1,0 +1,12 @@
+<div class="heart"
+     [ngClass]="isLiked && showAnimation ? 'is-active' : isLiked ? 'is-active-no-transition' : ''"
+      (click)="likeDislike()"
+></div>
+
+<!--
+if (isLiked && showAnimation)
+  class = is-active
+else if (isLiked)
+  class = no-transition
+else
+ class = ''-->

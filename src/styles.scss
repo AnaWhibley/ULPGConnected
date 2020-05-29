@@ -5,6 +5,10 @@ a {
     cursor: pointer;
 }
 
+*:focus {
+  outline:none !important;
+  box-shadow: none !important;
+}
 
 /*------------------------------------
 - COLOR primary
@@ -186,3 +190,8 @@ a.text-primary:focus {
     width: 50px;
     height: 50px;
 }
+
+body { margin: 0; }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: 'Roboto', sans-serif; }

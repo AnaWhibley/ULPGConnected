@@ -2,5 +2,29 @@
   margin: 2rem 15rem;
 }
 .card-container{
-  margin: 0 15rem;
+  padding-top: 2rem;
+
+}
+.user{
+  padding: 0 3rem;
+}
+
+span {
+  padding-top: 2.5em;
+}
+
+.right {
+  text-align: right;
+}
+
+.card-body, .card-header {
+  cursor: pointer;
+}
+
+.title {
+  padding-top: 0.5em;
+}
+
+.rightf {
+  float: right;
 }

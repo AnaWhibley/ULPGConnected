@@ -1,37 +1,72 @@
 <div class="container">
-    <div class="row">
-        <div class="col info">
-            <img src="assets/noimage.png" class="img-thumbnail img-circle">
-
-        </div>
-        <div class="col info">
-            <p>
-                Nombre Apellidos
-                <br> rol
-            </p>
-        </div>
+  <div class="row">
+    <div class="col info">
+      <img src="assets/noimage.png" class="img-thumbnail img-circle">
 
     </div>
-    <hr>
-    <div class="contenedor-menu">
-        <a href="#" class="btn-menu">Menu<i class="icono der fa fa-bars "></i></a>
-
-        <ul class="mmenu">
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="home">
-                    <i class="icono izq fa fa-home "></i>Home
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="me">
-                    <i class="icono izq fa fa-cogs"></i>Perfil
-                </a>
-            </li>
-            <li class="nav-item" routerLinkActive="active">
-                <a class="nav-link" routerLink="usuarios">
-                    <i class="icono izq fa fa-cog"></i>Gestión de usuarios
-                </a>
-            </li>
-        </ul>
+    <div class="col info">
+      <p>
+        {{ user.name}} {{user.surname}}
+        <br>
+        <span class="badge badge-pill badge-info" *ngIf="user.role == 2"> Usuario </span>
+        <span class="badge badge-pill badge-success" *ngIf="user.role == 1"> Administrador </span>
+      </p>
     </div>
+
+  </div>
+  <hr>
+  <div class="contenedor-menu">
+    <a href="#" class="btn-menu">Menu<i class="icono der fa fa-bars "></i></a>
+
+    <ul class="mmenu">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="home">
+          <i class="icono izq fa fa-home "></i>Home
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="me">
+          <i class="icono izq fa fa-cogs"></i>Perfil
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="misposts">
+          <i class="icono izq fa fa-list"></i>Mis Posts
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="mislikes">
+          <i class="icono izq fa fa-heart"></i>Mis Me Gusta
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="myfollwers">
+          <i class="icono izq fa fa-arrow-circle-left"></i>Mis seguidores
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="myfollwings">
+          <i class="icono izq fa fa-arrow-circle-right"></i>Mis seguidos
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="user.role == 1">
+        <a class="nav-link" routerLink="usuarios">
+          <i class="icono izq fa fa-cog"></i>Gestión de usuarios
+        </a>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="user.role == 1">
+        <a class="nav-link" routerLink="reports">
+          <i class="icono izq fa fa-warning"></i>Gestionar reports
+        </a>
+      </li>
+      <br>
+      <br>
+      <li class="nav-item">
+        <button type="button" class="btn btn-danger btn-block" (click)="logout()">
+          <i class="icono izq fa fa-sign-out-alt"></i>Desconectarse
+        </button>
+
+      </li>
+    </ul>
+  </div>
 </div>

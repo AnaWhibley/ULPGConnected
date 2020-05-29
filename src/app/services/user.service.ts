@@ -2,7 +2,9 @@ import {Injectable} from '@angular/core';
 import {AngularFirestore} from "@angular/fire/firestore";
 import {Router} from "@angular/router";
 import {from, Observable} from "rxjs";
-import {map} from "rxjs/operators";
+import {map, take, tap} from 'rxjs/operators';
+import FieldValue = firebase.firestore.FieldValue;
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -24,6 +26,8 @@ export class UserService {
       username: newUser.username,
       email: newUser.email,
       password: newUser.password,
+      following: [],
+      followers: []
     }).then(() => {
       console.log('done');
       this.router.navigate(["/"])
@@ -41,6 +45,18 @@ export class UserService {
   getUserByName(name): Observable<any>{
     return from(this.users.pipe(
       map(c => c.find(dato => dato.name == name)),
+    ));
+  }
+
+  getUserByOtherId(id): Observable<any>{
+    return from(this.users.pipe(
+      map(c => c.find(dato => dato.id == id)),
+    ));
+  }
+
+  getUserByEmail(email): Observable<any>{
+    return from(this.users.pipe(
+      map(c => c.find(dato => dato.email == email)),
     ));
   }
 
@@ -83,4 +99,63 @@ export class UserService {
     ));
   }
 
+  public isFollowed(myUserId, userId): Observable<any> {
+    return from(this.users.pipe(
+      map(c => c.find(dato => dato.id == myUserId && dato.following.includes(userId))),
+    ));
+  }
+
+  public addFollow(myPropertyId, userId, propertyId, myUserId ) {
+    this.db.collection("users")
+      .doc(myPropertyId)
+      .update(
+        {
+          "following": FieldValue.arrayUnion(userId)
+        }
+      ).then(() => {
+      console.log('done');
+    })
+      .catch(function(error) {
+        console.error('Error adding a follower: ', error);
+      });
+    this.db.collection("users")
+      .doc(propertyId)
+      .update(
+        {
+          "followers": FieldValue.arrayUnion(myUserId)
+        }
+      ).then(() => {
+      console.log('done');
+    })
+      .catch(function(error) {
+        console.error('Error adding a follow: ', error);
+      });
+  }
+
+  public removeFollow(myPropertyId, userId, propertyId, myUserId ) {
+    this.db.collection("users")
+      .doc(myPropertyId)
+      .update(
+        {
+          "following": FieldValue.arrayRemove(userId)
+        }
+      ).then(() => {
+      console.log('done');
+    })
+      .catch(function(error) {
+        console.error('Error adding a follower: ', error);
+      });
+    this.db.collection("users")
+      .doc(propertyId)
+      .update(
+        {
+          "followers": FieldValue.arrayRemove(myUserId)
+        }
+      ).then(() => {
+      console.log('done');
+    })
+      .catch(function(error) {
+        console.error('Error adding a follow: ', error);
+      });
+  }
 }

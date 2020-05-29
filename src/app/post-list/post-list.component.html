@@ -1,2 +1,24 @@
-<app-post-item>
-</app-post-item>
+<div class="contenedor-post">
+    <div class="title">
+        <div class="row">
+            <div class="col-sm">
+                <h1>Lista de publicaciones</h1>
+            </div>
+         <div class="toogle">
+           <label><b>Usuarios que sigo</b></label>
+           <mat-slide-toggle (change)="changeFeed($event)" id="switch"></mat-slide-toggle>
+         </div>
+            <div class="searchBar">
+              <span class="fa fa-search"></span>
+              <input type="text" placeholder="buscar usuario" ngModel name="user" #user="ngModel" (change)="aux(user)" id="user">
+            </div>
+            <div class="col-sm">
+                <button class="btn btn-primary" (click)="createPost()">Crear publicación</button>
+            </div>
+        </div>
+        <div *ngFor="let post of filteredPosts | postDateOrder:filteredPosts:true">
+            <app-post-item [post]="post">
+            </app-post-item>
+        </div>
+    </div>
+</div>

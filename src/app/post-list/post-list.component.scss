@@ -1,0 +1,37 @@
+.contenedor-post{
+  margin: 2rem 8rem;
+  .title{
+    margin-left: 2rem;
+  }
+  .searchBar {
+    position: relative;
+  }
+  .searchBar input {
+    text-indent: 2rem;
+    border-style: solid;
+    border-radius: 25px;
+    border-color: grey;
+  }
+  .searchBar .fa-search {
+    color: grey;
+    position: absolute;
+    top: .4rem;
+    left: .4rem;
+    font-size: 15px;
+  }
+
+  label{
+    padding-right: 1rem;
+  }
+  .toogle{
+    padding: 0 2rem;
+  }
+
+  ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #ffc107;
+  }
+  ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #16202C;
+  }
+
+}

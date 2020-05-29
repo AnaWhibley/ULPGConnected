@@ -23,7 +23,25 @@ import { RolOrderPipe } from './pipes/rol-order.pipe';
 import { NameOrderPipe } from './pipes/name-order.pipe';
 import { PostListComponent } from './post-list/post-list.component';
 import { PostItemComponent } from './post-item/post-item.component';
-
+import { PostDetailsComponent } from './post-details/post-details.component';
+import { LikesComponent } from './likes/likes.component';
+import { PostCreateComponent } from './post-create/post-create.component';
+import {AuthService} from "./services/auth.service";
+import { MisPostsComponent } from './mis-posts/mis-posts.component';
+import { MisLikesComponent } from './mis-likes/mis-likes.component';
+import { ReportMenuComponent } from './reported-posts/report-menu/report-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatMenuModule} from '@angular/material/menu';
+import {MatButtonModule, MatDialogModule, MatIconModule} from '@angular/material';
+import { PostDateOrderPipe } from './pipes/post-date-order.pipe';
+import { ReportDialogComponent } from './reported-posts/report-dialog/report-dialog.component';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { ReportedPostsComponent } from './reported-posts/reported-posts.component';
+import { MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { DeleteReportedPostDialogComponent } from './reported-posts/delete-reported-post-dialog/delete-reported-post-dialog.component';
+import { CheckedReportedPostDialogComponent } from './reported-posts/checked-reported-post-dialog/checked-reported-post-dialog.component';
+import { MyFollowersComponent } from './my-followers/my-followers.component';
+import { MyFollowingsComponent } from './my-followings/my-followings.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +60,22 @@ import { PostItemComponent } from './post-item/post-item.component';
     RolOrderPipe,
     NameOrderPipe,
     PostListComponent,
-    PostItemComponent
+    PostItemComponent,
+    PostDetailsComponent,
+    LikesComponent,
+    PostDetailsComponent,
+    PostCreateComponent,
+    MisPostsComponent,
+    MisLikesComponent,
+    ReportMenuComponent,
+    PostDateOrderPipe,
+    ReportDialogComponent,
+    UserInfoComponent,
+    ReportedPostsComponent,
+    DeleteReportedPostDialogComponent,
+    CheckedReportedPostDialogComponent,
+    MyFollowersComponent,
+    MyFollowingsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,8 +84,19 @@ import { PostItemComponent } from './post-item/post-item.component';
     AngularFireAuthModule,
     AngularFirestoreModule,
     FormsModule,
+    BrowserAnimationsModule,
+    MatMenuModule,
+    MatIconModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSlideToggleModule
   ],
-  providers: [AngularFireStorage],
-  bootstrap: [AppComponent]
+  providers: [AngularFireStorage, AuthService],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ReportDialogComponent,
+    DeleteReportedPostDialogComponent,
+    CheckedReportedPostDialogComponent
+  ]
 })
 export class AppModule { }
