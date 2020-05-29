@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-my-followings',
@@ -7,9 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MyFollowingsComponent implements OnInit {
 
-  constructor() { }
+  me: any;
+  subs: Subscription;
+  nFollowing: number;
+  followings = [];
 
-  ngOnInit() {
+  constructor(private authService: AuthService) {
+    this.nFollowing = 0;
   }
 
+  ngOnInit() {
+
+    this.subs = this.authService.userStatusChanges
+      .subscribe( userDetails => {
+        this.me = userDetails;
+        this.nFollowing = this.me.following.length;
+        this.followings = this.me.following;
+      });
+  }
 }
