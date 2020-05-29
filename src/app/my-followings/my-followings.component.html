@@ -16,12 +16,12 @@
     </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let user of followings">
-        <th scope="row"> <span *ngIf="user" (click)="goToUserDetails(user.id)">{{user.username}}</span> </th>
-        <td> {{user.name}} {{user.surname}} </td>
-        <td> {{user.followers.length}} </td>
-        <td> {{user.following.length}} </td>
-      </tr>
+    <tr *ngFor="let user of followings">
+      <th scope="row"> <span *ngIf="user" (click)="goToUserDetails(user.id)">{{user.username}}</span> </th>
+      <td> {{user.name}} {{user.surname}} </td>
+      <td> {{user.followers.length}} </td>
+      <td> {{user.following.length}} </td>
+    </tr>
     </tbody>
   </table>
 </div>

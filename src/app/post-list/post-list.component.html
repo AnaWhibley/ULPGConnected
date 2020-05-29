@@ -6,7 +6,7 @@
             </div>
          <div class="toogle">
            <label><b>Usuarios que sigo</b></label>
-           <mat-slide-toggle ngModel #checked="ngModel" name="switch" (change)="changeFeed(checked)" id="switch"></mat-slide-toggle>
+           <mat-slide-toggle (change)="changeFeed($event)" id="switch"></mat-slide-toggle>
          </div>
             <div class="searchBar">
               <span class="fa fa-search"></span>

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {PostService} from "../services/post.service";
 import {AuthService} from "../services/auth.service";
 import {Router} from '@angular/router';
@@ -13,8 +13,7 @@ export class PostListComponent implements OnInit {
   allPosts: Array <any>;
   posts: Array <any>;
   user: String;
-  checked: boolean = false;
-  flagButton: boolean;
+  checked: Boolean;
   currentUser: any;
   searchText: String = "";
   followedUsers: Array <any> =  [];
@@ -40,7 +39,7 @@ export class PostListComponent implements OnInit {
   searchUser(){
     this.filteredPosts = this.allPosts;
     let data = this.searchText
-      if(this.flagButton) {
+      if(this.checked) {
         this.check();
     }
     if(data && data !== ' '){
@@ -52,10 +51,9 @@ export class PostListComponent implements OnInit {
     }
 
   }
-  changeFeed(checked){
-    checked === undefined ? checked = false : checked;
-    this.flagButton = checked.viewModel;
-    if(checked.viewModel === true){
+  changeFeed(evt){
+    this.checked = evt.checked;
+    if(this.checked){
       this.check();
     }else{
       this.searchUser();
