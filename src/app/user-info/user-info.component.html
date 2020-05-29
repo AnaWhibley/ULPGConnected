@@ -1,10 +1,10 @@
 <div class="row">
-    <div class="col">
-        <h2 *ngIf="change"> Datos de {{ userInfo.username}}</h2>
-        <h2 *ngIf="!change"> Posts de {{ userInfo.username}}</h2>
-    </div>
-    <div class="col" style="align-content: center;">
-        <table>
+    <h2 *ngIf="change"> Datos de {{ userInfo.username}}</h2>
+    <h2 *ngIf="!change"> Posts de {{ userInfo.username}}</h2>
+</div>
+<div class="row">
+    <div class="col" style="text-align: center;">
+        <table style="margin: 0 auto; text-align: left;">
             <thead>
                 <tr>
                     <th style="text-align: center;"> {{nFollowers}} </th>
@@ -15,11 +15,11 @@
             <tbody>
                 <tr>
                     <th style="text-align: center">
-                        Seguidores
+                        <a class="badge badge-info">Seguidores</a>
                     </th>
                     <th>|</th>
-                    <th style="text-align: center">
-                        Seguidos
+                    <th>
+                        <a class="badge badge-info">Seguidos</a>
                     </th>
                 </tr>
             </tbody>
