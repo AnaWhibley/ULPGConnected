@@ -13,6 +13,8 @@ import { MisPostsComponent } from './mis-posts/mis-posts.component';
 import { MisLikesComponent } from './mis-likes/mis-likes.component';
 import { UserInfoComponent } from './user-info/user-info.component';
 import {ReportedPostsComponent} from './reported-posts/reported-posts.component';
+import {MyFollowersComponent} from './my-followers/my-followers.component';
+import {MyFollowingsComponent} from './my-followings/my-followings.component';
 
 
 const ROUTES: Routes = [
@@ -27,6 +29,8 @@ const ROUTES: Routes = [
   { path: 'postCreate', component: PostCreateComponent},
   { path: 'mislikes', component: MisLikesComponent},
   { path: 'misposts', component: MisPostsComponent},
+  { path: 'myfollwers', component: MyFollowersComponent},
+  { path: 'myfollwings', component: MyFollowingsComponent},
   { path: 'reports', component: ReportedPostsComponent},
   { path: 'user-info/:id', component: UserInfoComponent },
   { path: '**', pathMatch: 'full', redirectTo: ''}
