@@ -83,7 +83,7 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   }
 
   viewPosts(){
-    this.change = !this.change
+    this.change = !this.change;
   }
 // addFollow(myPropertyId, userId, propertyId, myUserId )
   follow(){
@@ -95,6 +95,22 @@ export class UserInfoComponent implements OnInit, OnDestroy {
   unfollow(){
     this.following = false;
     this.userService.removeFollow(this.myPropertyId, this.userInfo.id, this.userInfo.propertyId, this.me.id);
+  }
+
+  getFollowers(): any[] {
+    let followersList = [];
+    this.userInfo.followers.forEach(element => {
+      followersList.push(element);
+    });
+    return followersList;
+  }
+
+  getFollowings(): any[] {
+    let followingsList = [];
+    this.userInfo.followings.forEach(element => {
+      followingsList.push(element);
+    });
+    return followingsList;
   }
 
 
