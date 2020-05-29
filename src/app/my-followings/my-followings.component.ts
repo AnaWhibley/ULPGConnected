@@ -25,6 +25,8 @@ export class MyFollowingsComponent implements OnInit {
         this.me = userDetails;
         this.nFollowing = this.me.following.length;
         this.followings = this.me.following;
+        console.log("!!", this.me, );
+        console.log("followings!!", this.followings);
       });
   }
 }
