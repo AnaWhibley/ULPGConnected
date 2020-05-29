@@ -6,9 +6,7 @@
   </div>
   <div class="m-5">
     <div *ngFor="let user of followings" class="m-3">
-      <span *ngIf="user" class="col-4" (click)="goToUserDetails(user.userId)">@{{user.userName}}</span>
-      <!--<app-user-item [user]="user">
-      </app-user-item>-->
+      <span *ngIf="user" class="col-4" (click)="goToUserDetails(user.id)">@{{user.username}} {{user.name}}</span>
     </div>
   </div>
 </div>
