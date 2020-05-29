@@ -1,13 +1,13 @@
 <div class="m-5">
-    <div class="row">
-      <div class="col">
-        <h2> Seguimientos de {{ me.username }} ({{ nFollowing }})</h2>
-      </div>
+  <div class="row">
+    <div class="col">
+      <h2> Seguidos por {{ me.username }} ({{ nFollowing }})</h2>
     </div>
-    <div class="m-5">
-      <div *ngFor="let user of followings" class="m-3">
-        <!--<app-user-info [user]="user">
-        </app-user-info>-->
-      </div>
+  </div>
+  <div class="m-5">
+    <div *ngFor="let user of followings" class="m-3">
+      <!--<app-user-item [user]="user">
+      </app-user-item>-->
     </div>
+  </div>
 </div>
