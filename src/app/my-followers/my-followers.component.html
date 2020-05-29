@@ -1,14 +1,12 @@
 <div class="m-5">
   <div class="row">
     <div class="col">
-      <h2> Seguidores de {{ me.username }} ({{ nFollowers }})</h2>
+      <h2 *ngIf="me"> Seguidores de {{ me.username }} ({{ nFollowers }})</h2>
     </div>
   </div>
   <div class="m-5">
     <div *ngFor="let user of followers" class="m-3">
-      <span class="col-4" (click)="goToUserDetails(user.userId)">@{{user.userName}}</span>
-      <!--<app-user-item [user]="user">
-      </app-user-item>-->
+      <span *ngIf="user" class="col-4" (click)="goToUserDetails(user.id)">@{{user.username}} {{user.name}}</span>
     </div>
   </div>
 </div>
